@@ -11,4 +11,4 @@ For each requested platform produce:
 - **CTA** and suggested posting time
 - 2 alternative hooks for testing
 
-Follow `brand/voice.md`. Save to `deliverables/social/<topic-slug>.md`.
+Follow `knowledge/voice.md`. Save to `content/drafts/<topic-slug>.md`.

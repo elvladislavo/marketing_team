@@ -6,7 +6,7 @@ description: Produce an SEO content brief for a target keyword - intent, outline
 
 1. Confirm the primary keyword and audience. Use WebSearch to review the top-ranking results.
 2. Identify search intent and the winning content format (guide, list, comparison, tool page).
-3. Write `deliverables/seo/brief-<keyword-slug>.md` containing:
+3. Write `content/seo/brief-<keyword-slug>.md` containing:
    - Primary keyword, 5-10 secondary/semantic keywords
    - Search intent + angle to beat competitors (content gap)
    - Title tag options (<60 chars) and meta description (<155 chars)

@@ -10,4 +10,4 @@ Check and score each area (pass / warn / fail):
 - **Structured data**: present schema types, validity, opportunities.
 - **Content**: intent match, E-E-A-T signals, freshness.
 
-Output `deliverables/seo/audit-<site>.md`: summary score, then a table `issue | location | impact (H/M/L) | effort (H/M/L) | fix`, sorted by impact then effort.
+Output `content/seo/audit-<site>.md`: summary score, then a table `issue | location | impact (H/M/L) | effort (H/M/L) | fix`, sorted by impact then effort.

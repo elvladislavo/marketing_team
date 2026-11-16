@@ -10,4 +10,4 @@ description: Write an automated email sequence (welcome, onboarding, nurture, ca
 4. Add metrics to track (open rate, CTR, conversion, unsubscribe) and A/B test ideas.
 
 Typical defaults: welcome = 4-5 emails over 10-14 days; re-engagement = 3 emails over 10 days ending with a sunset email.
-Save to `deliverables/email/<sequence-slug>.md`.
+Save to `content/email/<sequence-slug>.md`.

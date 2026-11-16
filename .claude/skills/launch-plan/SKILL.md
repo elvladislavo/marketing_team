@@ -1,18 +1,14 @@
 ---
 name: launch-plan
-description: Plan a product or feature launch end-to-end, coordinating strategy, content, SEO, social, email, ads, and review. Use for "we're launching X" or full go-to-market requests.
+description: Plan and produce a full product/feature launch by having the orchestrator run every department. Use for "we're launching X" or full go-to-market requests.
 ---
-# Launch Plan (team orchestration)
-
-Run the marketing team in this order, delegating to subagents:
-1. **marketing-strategist** -> campaign brief (use the `campaign-brief` skill) and positioning.
-2. In parallel:
-   - **content-writer** -> launch blog post, landing page copy, press release
-   - **seo-specialist** -> keyword targets and SEO brief for the landing page
-   - **social-media-manager** -> launch-week social posts
-   - **email-marketer** -> announcement email + follow-up sequence
-   - **paid-ads-specialist** -> launch ad campaign and copy
-3. **brand-guardian** -> review every asset; fix issues.
-4. **marketing-analyst** -> define tracking (UTMs, events) and the success dashboard metrics.
-
-Finish with `deliverables/launch/<product>-launch-plan.md`: timeline (T-30 to T+30), asset checklist with owners/status, and links to all deliverables.
+# Launch Plan
+Delegate to the **orchestrator** agent (Opus), which runs:
+1. Research: audience-researcher, trend-spotter, keyword-finder (parallel).
+2. Plan: orchestrator writes the brief (campaign-brief skill) to content/launch/<product>/brief.md.
+3. Create (parallel): post-writer, email-writer, video-maker, graphic-designer, seo-writer, lead-magnet, sequences.
+4. Edit + approval-desk on every asset -> queue/approval.md.
+5. After human approval: scheduler, short-form-poster, long-form-poster.
+6. Leads: lead-forms, lead-catcher, call-booker ready.
+7. Analytics: define KPIs; post-launch run the `analytics-loop` skill.
+Output: content/launch/<product>/plan.md with T-30 to T+30 timeline and asset checklist.

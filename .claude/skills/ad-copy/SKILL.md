@@ -17,4 +17,4 @@ Character limits:
 | LinkedIn | Headline | 70 |
 | TikTok | Ad text | 100 |
 
-Write at least 3 variants per angle (pain, benefit, social proof, urgency/offer). Show the character count next to each line and never exceed limits. Add creative direction for image/video and an A/B test hypothesis. Save to `deliverables/ads/`.
+Write at least 3 variants per angle (pain, benefit, social proof, urgency/offer). Show the character count next to each line and never exceed limits. Add creative direction for image/video and an A/B test hypothesis. Save to `content/ads/`.
