@@ -1,10 +1,10 @@
 <link rel="stylesheet" href="brand.css"><style>
 html,body{height:1920px}.slide{padding:150px 88px}
 .l{opacity:0}
-h1{font-size:118px}
-.hook{margin-top:120px}
-.items{margin-top:90px;display:flex;flex-direction:column;gap:50px}
-.it{display:flex;align-items:center;gap:36px;opacity:0;border-top:3px solid #2a2a2e;padding-top:44px}
+h1{font-size:128px}
+.hook{margin-top:160px}
+.items{margin-top:120px;display:flex;flex-direction:column;gap:60px}
+.it{display:flex;align-items:center;gap:36px;opacity:0;border-top:3px solid #2a2a2e;padding-top:36px}
 .n{font:800 120px/1 "Archivo Variable";color:var(--red);width:170px}
 .lab{font-weight:800;font-size:68px;line-height:1.05;letter-spacing:-.03em;flex:1}
 .lab small{display:block;font:500 30px ui-monospace,monospace;color:var(--bone2);letter-spacing:.06em;margin-top:10px;text-transform:uppercase}
@@ -22,14 +22,14 @@ h1{font-size:118px}
 <div class="hook"><div class="bar l" id="b"></div>
 <h1><span class="l" id="h1" style="display:block">3 rzeczy, które</span><span class="l" id="h2" style="display:block"><em>spowalniają</em></span><span class="l" id="h3" style="display:block">Twoją stronę.</span></h1></div>
 <div class="items">
- <div class="it" id="i1"><div class="n">1</div><div class="lab">Ciężkie zdjęcia<small>5 MB zamiast 200 KB</small></div>
-  <div class="vis"><div class="box"><div class="bar2" id="p1" style="width:0;background:var(--red)"></div><div id="t1" style="position:absolute;left:16px;top:14px;font:800 54px 'Archivo Variable'">5 MB</div></div></div></div>
+ <div class="it" id="i1"><div class="n">1</div><div class="lab">Ciężkie zdjęcia<small>nieskompresowane</small></div>
+  <div class="vis"><div class="box"><div class="bar2" id="p1" style="width:0;background:var(--red)"></div><div id="t1" style="position:absolute;left:16px;top:14px;font:800 34px 'Archivo Variable'">ZA DUŻE</div></div></div></div>
  <div class="it" id="i2"><div class="n">2</div><div class="lab">Za dużo wtyczek<small>każda coś dokłada</small></div>
   <div class="vis"><div class="box" id="pl"></div></div></div>
- <div class="it" id="i3"><div class="n">3</div><div class="lab">Brak lazy loading<small>wszystko ładuje się naraz</small></div>
+ <div class="it" id="i3"><div class="n">3</div><div class="lab">Brak lazy loading<small>wszystko naraz</small></div>
   <div class="vis"><div class="box"><div id="lz"></div></div></div></div>
 </div></div>
-<div class="end" id="end"><h2>Szybka strona?<br><em>Napisz w DM</em> →</h2><div class="pill">od 800 zł</div><div class="u">@elvladislavo_com · elvladislavo.com</div></div>
+<div class="end" id="end"><h2>Szybka strona?<br><em>Napisz w DM</em> →</h2><div class="pill">od 800 zł</div><div class="u">@elvladislavo_com<br>elvladislavo.com</div></div>
 <script>
 const C=x=>Math.min(Math.max(x,0),1),ease=x=>1-Math.pow(1-C(x),3);
 const show=(id,t0,t,d=0.5,dy=40)=>{const e=document.getElementById(id),k=ease((t-t0)/d);e.style.opacity=k;e.style.transform=`translateY(${dy*(1-k)}px)`};

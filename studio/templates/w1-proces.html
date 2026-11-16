@@ -1,18 +1,18 @@
 <link rel="stylesheet" href="brand.css"><style>
 html,body{height:1920px}.slide{padding:150px 88px}
 .l{opacity:0}
-h1{font-size:132px}
-.hook{margin-top:150px}
-.steps{margin-top:110px;display:flex;flex-direction:column;gap:56px}
-.step{display:flex;align-items:center;gap:44px;opacity:0}
-.n{font:800 150px/1 "Archivo Variable";color:transparent;-webkit-text-stroke:3px var(--red);width:230px}
-.lab{font-weight:800;font-size:96px;letter-spacing:-.03em;flex:1}
+h1{font-size:150px}
+.hook{margin-top:230px}
+.steps{margin-top:190px;display:flex;flex-direction:column;gap:120px}
+.step{display:flex;align-items:center;gap:30px;opacity:0}
+.n{font:800 120px/1 "Archivo Variable";color:transparent;-webkit-text-stroke:3px var(--red);width:170px}
+.lab{font-weight:800;font-size:88px;letter-spacing:-.03em;flex:1}
 .lab small{display:block;font:500 30px ui-monospace,monospace;color:var(--bone2);letter-spacing:.08em;text-transform:uppercase;margin-top:8px}
-.vis{width:210px;height:150px;position:relative}
-.wire{border:4px solid var(--bone);border-radius:10px;width:210px;height:150px;position:relative;overflow:hidden}
+.vis{width:200px;height:150px;position:relative}
+.wire{border:4px solid var(--bone);border-radius:10px;width:200px;height:150px;position:relative;overflow:hidden}
 .wire i{position:absolute;background:var(--bone2);display:block}
-.cd{font:600 34px/1.35 ui-monospace,monospace;color:var(--lime);background:var(--ink2);border-radius:10px;padding:16px 20px;width:210px;height:150px;overflow:hidden;white-space:pre}
-.live{width:210px;height:150px;border:4px solid var(--lime);border-radius:10px;display:flex;align-items:center;justify-content:center;font:800 40px "Archivo Variable";color:var(--lime);letter-spacing:.04em}
+.cd{font:600 26px/1.35 ui-monospace,monospace;color:var(--lime);background:var(--ink2);border-radius:10px;padding:16px 20px;width:200px;height:150px;overflow:hidden;white-space:pre}
+.live{width:200px;height:150px;border:4px solid var(--lime);border-radius:10px;display:flex;align-items:center;justify-content:center;font:800 40px "Archivo Variable";color:var(--lime);letter-spacing:.04em}
 .end{position:absolute;inset:0;background:var(--red);display:flex;flex-direction:column;justify-content:center;padding:88px;opacity:0}
 .end h2{font:800 150px/1 "Archivo Variable";letter-spacing:-.04em;color:#fff}
 .end h2 em{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400}
@@ -30,11 +30,11 @@ h1{font-size:132px}
  <div class="step" id="s3"><div class="n">03</div><div class="lab">Wdrożenie<small>na Twój hosting</small></div>
   <div class="vis"><div class="live" id="lv">LIVE ✓</div></div></div>
 </div></div>
-<div class="end" id="end"><h2>Napisz<br>w <em>DM</em> →</h2><div class="pill">od 800 zł</div><div class="u">@elvladislavo_com · elvladislavo.com</div></div>
+<div class="end" id="end"><h2>Napisz<br>w <em>DM</em> →</h2><div class="pill">od 800 zł</div><div class="u">@elvladislavo_com<br>elvladislavo.com</div></div>
 <script>
 const C=x=>Math.min(Math.max(x,0),1),ease=x=>1-Math.pow(1-C(x),3);
 const show=(id,t0,t,d=0.5,dy=40)=>{const e=document.getElementById(id),k=ease((t-t0)/d);e.style.opacity=k;e.style.transform=`translateY(${dy*(1-k)}px)`;return k};
-const code='<h1>Firma</h1>\n<a href=\n "#kontakt">';
+const code="<h1>Firma</h1>\n<a href=\n\"#kontakt\">";
 window.render=t=>{
  show('b',0,t,.3,0);show('h1',0,t,.4,50);show('h2',.25,t,.4,50);
  // steps
