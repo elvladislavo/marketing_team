@@ -1,0 +1,25 @@
+<!doctype html><meta charset="utf-8">
+<link rel="stylesheet" href="brand.css">
+<style>
+html,body{width:1080px;height:1920px;overflow:hidden;background:#0A0A0B}
+.ph{position:absolute;left:0;top:300px;width:1080px;height:1440px;background:url(../../brand/avatar/ref-front.jpg) 0 0/1080px 1440px no-repeat}
+#top{clip-path:polygon(120px 0,960px 0,960px 690px,800px 838px,280px 838px,120px 690px)}
+#bot{}
+#mouth{position:absolute;left:285px;width:510px;height:0;top:1138px;border-radius:40px 40px 50% 50%;background:radial-gradient(ellipse at 50% 100%,#5a1410,#1a0302 70%)}
+#cap{position:absolute;left:88px;right:88px;top:110px;font:800 76px/1.05 "Archivo Variable";color:#EFEAE1;letter-spacing:-.03em}
+#cap em{font-family:"Instrument Serif";font-weight:400;color:#C8FF3D}
+#vig{position:absolute;inset:0;background:linear-gradient(#0A0A0B 0 300px,transparent 420px,transparent 1600px,#0A0A0B 1740px)}
+</style>
+<div id="bot" class="ph"></div>
+<div id="mouth"></div>
+<div id="top" class="ph"></div>
+<div id="vig"></div>
+<div id="cap">Cześć, jestem <em>Uladzislau</em>.</div>
+<script>
+const syl=[.15,.35,.55,.8,1.0,1.2,1.45,1.65,1.9,2.1];
+window.render=t=>{let open=0;syl.forEach(s=>{const d=t-s;if(d>0&&d<.2)open=Math.max(open,Math.sin(d/.2*Math.PI))});
+ document.getElementById('top').style.transform=`translateY(${-72*open}px) rotate(${-2*open}deg)`;
+ document.getElementById('top').style.transformOrigin=`540px 838px`;
+ const h=72*open;document.getElementById('mouth').style.height=h+'px';document.getElementById('mouth').style.top=(1138-h)+'px';};
+render(0);
+</script>
