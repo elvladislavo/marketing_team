@@ -1,3 +1,4 @@
 # Reporting
-- North-star metric: [TBD]
-- Weekly KPIs & targets: posts, views, followers, leads, calls booked, sales, revenue, email CTR
+- North-star: qualified enquiries per month → projects won.
+- Weekly KPIs: enquiries (form/email/phone), calls, quotes sent, projects won, revenue (PLN), posts, reach, followers.
+- Targets: [TBD]
