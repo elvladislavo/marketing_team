@@ -1,0 +1,102 @@
+<link rel="stylesheet" href="brand.css">
+<style>
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--ink)}
+.abs{position:absolute}
+#glow{width:900px;height:900px;border-radius:50%;background:radial-gradient(circle,rgba(255,46,31,.35),rgba(255,46,31,0) 65%);filter:blur(20px)}
+#grain{position:absolute;inset:0;width:1080px;height:1920px;opacity:.09;mix-blend-mode:screen}
+.gl{position:absolute;background:rgba(239,234,225,.07)}
+.hook{left:88px;top:170px;width:904px;font-weight:800;font-size:92px;line-height:1.02;letter-spacing:-.035em;color:var(--bone)}
+.hook .w{display:inline-block;will-change:transform}
+.serif{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;color:var(--red);letter-spacing:-.01em}
+#uline{left:88px;top:405px;height:8px;background:var(--red);width:0}
+.top{left:88px;top:96px;font:500 26px ui-monospace,monospace;letter-spacing:.12em;color:rgba(239,234,225,.6);right:88px;display:flex;justify-content:space-between}
+.logo{color:var(--red);font:800 30px "Archivo Variable";letter-spacing:0}
+svg{position:absolute;left:0;top:0}
+.num{left:40px;font:900 170px/1 "Archivo Variable";color:transparent;-webkit-text-stroke:3px var(--red)}
+.lbl{font:600 34px "Archivo Variable";color:var(--bone)}
+.lbl small{display:block;font:500 22px ui-monospace,monospace;color:var(--lime);letter-spacing:.1em;margin-bottom:6px}
+.card{width:140px;height:170px;border-radius:18px;background:#17171A;border:2px solid rgba(239,234,225,.12)}
+.card i{display:block;margin:18px;height:60px;border-radius:10px;background:rgba(255,46,31,.25)}
+.card b{display:block;margin:0 18px 10px;height:10px;border-radius:5px;background:rgba(239,234,225,.25)}
+#btn{background:var(--red);color:#fff;font:800 40px "Archivo Variable";padding:26px 48px;border-radius:999px;white-space:nowrap}
+.ring{border:3px solid var(--red);border-radius:999px}
+#end{inset:0;background:var(--red);clip-path:inset(100% 0 0 0)}
+#end h2{position:absolute;left:88px;top:640px;font:800 120px/1 "Archivo Variable";letter-spacing:-.04em;color:#fff}
+#end h2 em{font-family:"Instrument Serif";font-weight:400;color:var(--ink)}
+#end .cta{position:absolute;left:88px;top:980px;background:var(--ink);color:var(--bone);font:800 52px "Archivo Variable";padding:30px 46px;border-radius:12px}
+#end .h{position:absolute;left:88px;top:1170px;font:500 34px ui-monospace,monospace;color:#fff}
+</style>
+<div id="glow" class="abs"></div>
+<div id="grid"></div>
+<div class="top abs"><span class="logo">el</span><span>01 SEKUNDA</span></div>
+<div id="hook" class="hook abs"></div>
+<div id="hook2" class="hook abs" style="opacity:0"></div>
+<div id="uline" class="abs"></div>
+<svg width="1080" height="1920"><rect id="phone" x="290" y="560" width="560" height="1010" rx="64" fill="none" stroke="#EFEAE1" stroke-opacity=".55" stroke-width="3"/></svg>
+<div id="stage" class="abs" style="left:0;top:0;width:1080px;height:1920px;transform-origin:570px 1065px">
+  <div id="n1" class="num abs" style="top:640px">01</div>
+  <div id="n2" class="num abs" style="top:880px">02</div>
+  <div id="n3" class="num abs" style="top:1270px">03</div>
+  <div id="b1" class="abs" style="left:330px;top:620px;width:480px">
+    <div style="display:flex;align-items:center;gap:22px">
+      <div style="width:76px;height:76px;border-radius:50%;background:var(--red)"></div>
+      <div class="lbl"><small>01</small>Kto jesteś</div></div>
+    <div style="margin-top:26px;height:12px;width:420px;border-radius:6px;background:rgba(239,234,225,.25)"></div>
+    <div style="margin-top:14px;height:12px;width:300px;border-radius:6px;background:rgba(239,234,225,.15)"></div>
+  </div>
+  <div id="b2" class="abs" style="left:330px;top:880px;width:480px">
+    <div class="lbl" style="margin-bottom:22px"><small>02</small>Co oferujesz</div>
+    <div style="display:flex;gap:16px"><div class="card c"><i></i><b></b><b style="width:60px"></b></div><div class="card c"><i></i><b></b><b style="width:60px"></b></div><div class="card c"><i></i><b></b><b style="width:60px"></b></div></div>
+  </div>
+  <div id="b3" class="abs" style="left:330px;top:1270px;width:480px">
+    <div class="lbl" style="margin-bottom:26px"><small>03</small>Jak się skontaktować</div>
+    <div style="position:relative;display:inline-block">
+      <div id="r1" class="ring abs" style="inset:0"></div><div id="r2" class="ring abs" style="inset:0"></div>
+      <div id="btn">Napisz →</div></div>
+  </div>
+</div>
+<div id="end" class="abs"><h2>Masz te<br>3 <em>rzeczy</em>?</h2><div class="cta">Napisz w DM →</div><div class="h">@elvladislavo_com<br>elvladislavo.com</div></div>
+<canvas id="grain" width="540" height="960"></canvas>
+<script>
+const $=id=>document.getElementById(id), C=(x)=>Math.min(Math.max(x,0),1);
+const oC=x=>1-Math.pow(1-C(x),3), oB=x=>{x=C(x);const c=1.70158;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)}, io=x=>{x=C(x);return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2};
+function words(el,html){el.innerHTML=html.split(' ').map(w=>`<span class="w">${w}</span>`).join(' ')}
+words($('hook'),'Co klient widzi w pierwszej <span class="serif">sekundzie?</span>');
+words($('hook2'),'Reszta to <span class="serif">dodatki.</span>');
+// grid
+const g=$('grid');for(let i=1;i<6;i++){g.insertAdjacentHTML('beforeend',`<div class="gl v" style="left:${i*180}px;top:960px;width:2px;height:0"></div>`)}
+for(let i=1;i<10;i++){g.insertAdjacentHTML('beforeend',`<div class="gl h" style="top:${i*192}px;left:540px;height:2px;width:0"></div>`)}
+const phone=$('phone'),P=2*(560+1010);phone.style.strokeDasharray=P;
+const cards=[...document.querySelectorAll('.c')], cv=$('grain').getContext('2d'), img=cv.createImageData(540,960);
+function grain(f){let s=f*9301+49297;for(let i=0;i<img.data.length;i+=4){s=(s*1103515245+12345)&0x7fffffff;const v=(s>>16)&255;img.data[i]=img.data[i+1]=img.data[i+2]=v;img.data[i+3]=255}cv.putImageData(img,0,0)}
+function stagger(el,t0,t,dy=70){[...el.querySelectorAll('.w')].forEach((w,i)=>{const k=oC((t-t0-i*.08)/.55);w.style.opacity=k;w.style.transform=`translateY(${dy*(1-k)}px)`})}
+function show(el,k,dx=0,dy=0,s=1){el.style.opacity=C(k);el.style.transform=`translate(${dx}px,${dy}px) scale(${s})`}
+window.render=t=>{
+  grain(Math.floor(t*30));
+  $('glow').style.left=(90+180*Math.sin(t*.55))+'px';$('glow').style.top=(700+160*Math.cos(t*.4))+'px';
+  $('glow').style.opacity=.7+.3*oC((t-7.4)/1);
+  // hook
+  stagger($('hook'),0.05,t);$('hook').style.opacity=1-oC((t-7.3)/.4);
+  $('uline').style.width=(520*oC((t-1.0)/.6)*(1-oC((t-7.3)/.4)))+'px';
+  stagger($('hook2'),7.6,t);$('hook2').style.opacity=t<7.6?0:1;
+  // grid + phone
+  document.querySelectorAll('.gl.v').forEach((l,i)=>{const k=io((t-1.0-i*.05)/.9);l.style.height=1920*k+'px';l.style.top=960-960*k+'px'});
+  document.querySelectorAll('.gl.h').forEach((l,i)=>{const k=io((t-1.1-i*.04)/.9);l.style.width=1080*k+'px';l.style.left=540-540*k+'px'});
+  phone.style.strokeDashoffset=P*(1-io((t-1.1)/1.0));
+  // blocks
+  const k1=(t-2.0)/.7;show($('b1'),oC(k1),0,-120*(1-oB(k1)));
+  const k2=(t-3.8)/.6;show($('b2').querySelector('.lbl'),oC(k2),0,40*(1-oC(k2)));
+  cards.forEach((c,i)=>{const k=(t-4.0-i*.15)/.6;show(c,oC(k),0,90*(1-oB(k)))});
+  const k3=(t-5.6)/.5;show($('b3').querySelector('.lbl'),oC(k3),0,40*(1-oC(k3)));
+  const kb=(t-5.9)/.6;show($('btn'),oC(kb*2),0,0,.3+.7*oB(kb));
+  [$('r1'),$('r2')].forEach((r,i)=>{const p=((t-6.4-i*.5)%1.2+1.2)%1.2/1.2;const on=t>6.4+i*.5;r.style.opacity=on?(1-p)*.8:0;r.style.transform=`scale(${1+p*.5},${1+p*1.1})`});
+  // big numbers: each visible during its section
+  [[2.0,3.8],[3.8,5.6],[5.6,7.4]].forEach(([a,b],i)=>{const n=$('n'+(i+1));const kin=oC((t-a)/.5),kout=oC((t-b+.1)/.4);n.style.opacity=kin*(1-kout)*.9;n.style.transform=`translateX(${-80*(1-kin)+40*kout}px)`});
+  // outro scale
+  const ks=io((t-7.4)/1);$('stage').style.transform=`scale(${1-.06*ks})`;
+  // end card
+  const ke=io((t-8.6)/.7);$('end').style.clipPath=`inset(${100-100*ke}% 0 0 0)`;
+  [...$('end').children].forEach((e,i)=>{const k=oC((t-9.0-i*.18)/.5);e.style.opacity=k;e.style.transform=`translateY(${50*(1-k)}px)`});
+};
+render(0);
+</script>
