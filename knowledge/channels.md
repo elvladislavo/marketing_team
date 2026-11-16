@@ -18,3 +18,4 @@ Languages: Polish first (main market), English second, Russian third (for RU-spe
 - Posting: Instagram 5 posts/week + Threads 5 posts/week, using Buffer's posting-schedule slots (addToQueue fills next free slot).
 - Threads = text-first: short opinions, tips, questions, behind-the-scenes; repurpose each IG carousel into a Threads post/thread. No hashtag sets (max 1 topic tag).
 - Buffer free limit is 10 scheduled posts; keep about 1 week queued per channel and top up weekly.
+- **Threads voice (2026-11-16, from owner's past posts):** Russian first, then one short PL line and one EN line; casual, short, ends with a question to the community. Instagram stays PL-first.
