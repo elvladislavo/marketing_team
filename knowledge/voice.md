@@ -9,6 +9,6 @@ Derived from elvladislavo.com.
 
 **Example lines:** "Strony internetowe za rozsądne pieniądze." · "Punkty wyjścia, nie pakiety." · "Masz pomysł? Zróbmy z niego coś konkretnego." · "Treści i adresy zostają."
 
-**Rules:** speak as "ja" (I), address client as "Ty"; numbered sections (01, 02…); arrows (→ ↓ ↗) in CTAs; no hype words, no guarantees, no fake urgency. Primary language Polish, also English.
+**Rules:** speak as "ja" (I), address client as "Ty"; numbered sections (01, 02…); arrows (→ ↓ ↗) in CTAs; no hype words, no guarantees, no fake urgency. Content language: Polish first, English second (bilingual captions PL then EN). Reply in the language the client writes in (PL/EN/RU/BY/UA).
 
 **Visual style:** dark ink #0A0A0B / #101012, bone #EFEAE1, accent red #FF2E1F, lime #C8FF3D. Fonts: Archivo (variable) + Instrument Serif Italic for accents. Editorial, minimal, big type, numbered sections.

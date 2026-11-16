@@ -3,8 +3,9 @@
 |---|---|---|---|---|---|
 | Website | elvladislavo.com | convert enquiries | landing, portfolio | — | — |
 | Email | hello@elvladislavo.com | replies/quotes | 1:1 | — | — |
-| Instagram | [TBD — none linked on site] | portfolio, before/after | reels, carousels | [TBD] | |
+| Instagram | @elvladislavo_com (instagram.com/elvladislavo_com) | main social channel: portfolio, before/after, DMs → enquiries | reels, carousels, stories | 5 posts + daily stories | PL evenings 18-21, lunch 12-13 [test] |
 | TikTok | [TBD] | reach | build videos, site reviews | [TBD] | |
 | LinkedIn | [TBD] | B2B trust | posts | [TBD] | |
 | Google Business Profile | [TBD] | local search | posts, reviews | [TBD] | |
-No social handles are linked from the site yet.
+Instagram is the priority channel. Add the Instagram link to the website footer (todo).
+Languages: Polish first (main market), English second. Bilingual captions (PL first, EN below) or separate posts per language.
