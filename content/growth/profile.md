@@ -67,3 +67,16 @@ Face or clean logo mark on dark ink background; must be recognizable at small si
 - [ ] Build 5 highlights, pin 3 posts
 - [ ] Add IG link to the website footer
 - [ ] Re-audit once the live profile is readable
+
+## Live audit update (2026-11-16, from screenshot)
+- Name field -> `Vladislav | Strony internetowe` (searchable; handle already holds the brand).
+- Bio (PL, EN line) replacing current:
+  `Strony internetowe dla małych firm 🇵🇱 — od projektu po wdrożenie, sam.`
+  `Landing od 800 zł · strony firmowe · sklepy WooCommerce`
+  `Websites for small businesses · PL/EN/UA`
+  `↓ Wycena w 1 dzień roboczy`
+- Remove "Web aplikacje" unless it's a sold service (not on the website).
+- Link: one link to elvladislavo.com/#kontakt (+UTM) first in the list.
+- Add highlights: Realizacje · Cennik · Jak działam · FAQ.
+- Pins: keep "Jak powstaje strona…" (best, 51 views); swap "Kreator…" for a real client before/after (Kameralny / Zhyvitsa).
+- eltrace.app Reels (RU): archive or move to a separate account - they confuse who the profile is for.

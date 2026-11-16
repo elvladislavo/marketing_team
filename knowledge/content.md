@@ -5,3 +5,4 @@ Proposed pillars (confirm):
 3. Process / behind the build (design → code → launch) — 20%
 4. Mini site reviews of local businesses — 20%
 Winning patterns (updated by loop-feeder): none yet
+- 2026-11-16 (baseline): personal/process carousel "Jak powstaje strona, kiedy robi ją jedna osoba" = 51 views vs 11-14 for price/tech carousels. Lean into face + one-person story.
