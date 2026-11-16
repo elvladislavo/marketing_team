@@ -1,0 +1,17 @@
+<link rel="stylesheet" href="brand.css"><style>html,body{height:1920px}.slide{padding:160px 88px}
+.l{opacity:0;transform:translateY(40px)}h1{font-size:128px}.code{font:500 34px/1.5 ui-monospace,monospace;color:var(--lime);opacity:.0}</style>
+<div class="slide"><div class="top"><span class="logo">el</span><span>Warszawa</span></div>
+<div style="margin-top:260px"><div class="bar l" id="b"></div>
+<h1><span class="l" id="a1" style="display:block">Strona.</span><span class="l" id="a2" style="display:block">Od projektu</span><span class="l" id="a3" style="display:block">po <em>wdrożenie</em>.</span></h1>
+<pre class="code" id="c"></pre></div>
+<div class="bottom l" id="e"><span>elvladislavo.com</span><span class="cta">od 800 zł →</span></div></div>
+<script>
+const code='&lt;header&gt;\n  &lt;h1&gt;Twoja firma&lt;/h1&gt;\n  &lt;a href="#kontakt"&gt;Zadzwoń&lt;/a&gt;\n&lt;/header&gt;';
+const ease=x=>1-Math.pow(1-Math.min(Math.max(x,0),1),3);
+const show=(id,t0,t)=>{const e=document.getElementById(id),k=ease((t-t0)/0.6);e.style.opacity=k;e.style.transform=`translateY(${40*(1-k)}px)`};
+window.render=t=>{show('b',0.2,t);show('a1',0.5,t);show('a2',1.1,t);show('a3',1.7,t);
+ const c=document.getElementById('c');c.style.opacity=t>2.6?1:0;c.style.marginTop='80px';
+ const raw=code.replace(/&lt;/g,'<').replace(/&gt;/g,'>');const n=Math.floor(Math.max(0,t-2.6)*28);
+ c.textContent=raw.slice(0,n)+(Math.floor(t*2)%2?'▍':' ');show('e',5.6,t)};
+render(0);
+</script>

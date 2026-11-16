@@ -33,3 +33,7 @@ reports/     morning briefs, analytics, next-week priorities
 - Never invent data, quotes, customers or prices.
 - External tools (HubSpot, Canva, Buffer, ElevenLabs, Stripe, Calendly...) work only when their MCP connector is connected; otherwise agents produce ready-to-use drafts and files.
 - `scripts/gen_agents.py` regenerates the 35 department agents - edit it, then run `python3 scripts/gen_agents.py`.
+
+## Studio (images & animated Reels)
+`studio/` renders brand-styled content: `node render.js image <html> <png>` (1080x1350 carousel slides) and `node render.js video <html> <mp4> <secs> 30` (1080x1920 Reels, animation in `window.render(t)`). Output goes to `content/media/`. Run `npm i` in `studio/` first in a new session.
+Buffer needs a **public URL** for media: upload files to a public host (e.g. elvladislavo.com/media/) before scheduling Instagram posts.

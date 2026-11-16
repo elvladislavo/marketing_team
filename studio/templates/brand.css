@@ -1,0 +1,18 @@
+@import url("../node_modules/@fontsource-variable/archivo/wght.css");
+@import url("../node_modules/@fontsource/instrument-serif/400-italic.css");
+:root{--ink:#0A0A0B;--ink2:#17171A;--bone:#EFEAE1;--bone2:#C9C2B6;--red:#FF2E1F;--lime:#C8FF3D}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1350px;overflow:hidden}
+body{font-family:"Archivo Variable",Archivo,sans-serif;background:var(--ink);color:var(--bone)}
+.slide{position:absolute;inset:0;padding:96px 88px;display:flex;flex-direction:column}
+.slide.light{background:var(--bone);color:var(--ink)}
+.top{display:flex;justify-content:space-between;font:500 26px/1 ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;opacity:.7}
+.logo{font-weight:800;color:var(--red);letter-spacing:0;text-transform:none;font-family:"Archivo Variable"}
+.big{position:absolute;right:60px;top:120px;font-weight:900;font-size:380px;line-height:1;color:transparent;-webkit-text-stroke:3px rgba(255,46,31,.25)}
+.bar{width:110px;height:8px;background:var(--red);margin-bottom:40px}
+h1{font-weight:800;font-size:104px;line-height:1.0;letter-spacing:-.035em}
+h1 em,.serif{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;color:var(--red);letter-spacing:-.01em}
+p{font-size:40px;line-height:1.35;color:var(--bone2);max-width:860px}
+.light p{color:#4a4640}
+.bottom{margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;font:500 26px ui-monospace,monospace;opacity:.75}
+.cta{background:var(--red);color:#fff;padding:22px 34px;font:700 36px "Archivo Variable";border-radius:6px;opacity:1}
