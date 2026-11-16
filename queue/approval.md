@@ -23,3 +23,13 @@ Change `pending` to `approve` or `reject` (add a note). Agents only publish/send
 | 2026-11-16 | captions.md day 5 Threads | Threads Fri 21.11 | approve | scheduled | Buffer 6afb294f0c8c027c5734c264, 12:30 |
 | 2026-11-16 | captions.md RU stories 1-3 | Instagram Stories | fix | pending | native RU check |
 | 2026-11-16 | content/outreach/dm-drafts-2026-11-16.md (25 Warszawa + 15 Poznań prospects, prospects-2026-11-16.md) | Booksy/IG/FB DMs | outreach batch, human sends personally; verify own-site status + handle first | pending | engagement-hunter; own-site status unverified |
+
+## Buffer state after recheck (2026-11-16 17:16) - Mon-Fri, no client content
+| day | Threads | Instagram Reel 18:30 |
+|---|---|---|
+| Mon 16.11 | 17:45 price post (6afb2941) | w1-ceny-reel-a (6afb298a) |
+| Tue 17.11 | 12:30 one person vs agency (6afb2944) | w1-proces-a (6afb27c0) |
+| Wed 18.11 | 12:30 Instagram vs strona (6afb2c0c) | w1-instagram-vs-strona-a (6afb2c09) |
+| Thu 19.11 | 12:30 3-part speed thread (6afb294b) | w1-szybkosc-a (6afb27f1) |
+| Fri 20.11 | 12:30 question to followers (6afb294f) | w1-pytania-reel-a (6afb298e) |
+Barbershop Reel + Threads post: DELETED from Buffer (client-content rule).
