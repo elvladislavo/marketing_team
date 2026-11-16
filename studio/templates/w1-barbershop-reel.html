@@ -1,0 +1,55 @@
+<meta charset="utf-8"><link rel="stylesheet" href="brand.css"><style>
+html,body{height:1920px}.slide{padding:150px 88px}
+.l{opacity:0}
+h1{font-size:142px}
+h1 s{text-decoration:none;color:var(--bone2);position:relative;display:inline-block}
+h1 s:after{content:"";position:absolute;left:-6px;top:54%;height:10px;width:calc(var(--k,0)*100% + 12px);background:var(--red)}
+.hook{margin-top:170px}
+.win,.chips,.hook{flex-shrink:0}
+.win{margin-top:130px;border:4px solid var(--bone);border-radius:18px;overflow:hidden;opacity:0;background:var(--ink2)}
+.wb{display:flex;align-items:center;gap:14px;padding:22px 26px;border-bottom:4px solid var(--bone)}
+.wb i{width:20px;height:20px;border-radius:50%;background:var(--bone2);display:block}
+.wb i:first-child{background:var(--red)}
+.url{flex:1;margin-left:14px;background:var(--ink);border-radius:10px;padding:16px 22px;font:600 38px ui-monospace,monospace;color:var(--lime);white-space:nowrap;height:72px;overflow:hidden}
+.wbody{height:330px;position:relative}
+.wbody i{position:absolute;display:block;background:var(--bone2);opacity:0;border-radius:6px}
+.live{position:absolute;right:30px;bottom:26px;font:800 42px "Archivo Variable";color:var(--lime);border:4px solid var(--lime);border-radius:10px;padding:10px 22px;opacity:0}
+.chips{margin-top:90px;display:flex;flex-direction:column;gap:26px}
+.chip{display:flex;align-items:baseline;gap:26px;border-top:2px solid rgba(239,234,225,.25);padding-top:24px;font-weight:800;font-size:64px;letter-spacing:-.025em;opacity:0}
+.chip span{font:500 30px ui-monospace,monospace;color:var(--red);width:60px}
+.end{position:absolute;inset:0;background:var(--red);display:flex;flex-direction:column;justify-content:center;padding:88px;opacity:0}
+.end h2{font:800 136px/1 "Archivo Variable";letter-spacing:-.04em;color:#fff}
+.end h2 em{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400}
+.end .pill{margin-top:80px;background:var(--ink);color:var(--bone);font:800 76px "Archivo Variable";padding:36px 48px;border-radius:12px;display:inline-block;align-self:flex-start}
+.end .u{margin-top:50px;font:600 46px ui-monospace,monospace;color:#fff}
+</style>
+<div class="slide"><div class="top"><span class="logo">el</span><span>Poznań</span></div>
+<div class="hook"><div class="bar l" id="b"></div>
+<h1><span class="l" id="h1" style="display:block"><s id="bs">Bishop</s> → <em style="color:var(--red)">Kameralny</em>.</span><span class="l" id="h2" style="display:block">Nowa strona.</span></h1></div>
+<div class="win" id="win"><div class="wb"><i></i><i></i><i></i><div class="url" id="url"></div></div>
+ <div class="wbody"><i id="w1" style="left:30px;top:30px;width:960px;height:44px"></i><i id="w2" style="left:30px;top:100px;width:600px;height:190px"></i><i id="w3" style="left:660px;top:100px;width:330px;height:80px"></i><i id="w4" style="left:660px;top:210px;width:330px;height:80px;background:var(--red)"></i><div class="live" id="lv">LIVE ✓</div></div></div>
+<div class="chips">
+ <div class="chip" id="c1"><span>01</span>Poznań, Piątkowo</div>
+ <div class="chip" id="c2"><span>02</span>Na rynku od 2017</div>
+ <div class="chip" id="c3"><span>03</span>Rebrand z „Bishop”</div>
+ <div class="chip" id="c4"><span>04</span>Rezerwacja: Booksy</div>
+</div></div>
+<div class="end" id="end"><h2>Twoja firma<br><em>następna?</em></h2><div class="pill">Napisz w DM →</div><div class="u">@elvladislavo_com</div></div>
+<script>
+const C=x=>Math.min(Math.max(x,0),1),ease=x=>1-Math.pow(1-C(x),3);
+const show=(id,t0,t,d=0.5,dy=40)=>{const e=document.getElementById(id),k=ease((t-t0)/d);e.style.opacity=k;e.style.transform=`translateY(${dy*(1-k)}px)`;return k};
+const dom="kameralnybarbershop.pl";
+window.render=t=>{
+ show('b',0,t,.3,0);show('h1',0,t,.4,50);show('h2',.45,t,.4,50);
+ document.getElementById('bs').style.setProperty('--k',ease((t-.7)/.4));
+ show('win',1.8,t,.5,40);
+ const n=Math.floor(C((t-2.3)/1.6)*dom.length);document.getElementById('url').textContent=dom.slice(0,n)+(Math.floor(t*3)%2&&t<4.2?'▍':'');
+ [['w1',3.4],['w2',3.7],['w3',4.0],['w4',4.3]].forEach(([id,s])=>{const k=ease((t-s)/.35),e=document.getElementById(id);e.style.opacity=id=='w4'?k:k*.9;e.style.transform=`scale(${.6+.4*k})`});
+ const k=ease((t-4.9)/.4),lv=document.getElementById('lv');lv.style.opacity=k;lv.style.transform=`scale(${.8+.2*k})`;
+ show('c1',5.4,t);show('c2',6.6,t);show('c3',7.8,t);show('c4',9.0,t);
+ const e=document.getElementById('end');e.style.opacity=ease((t-10.8)/.35);
+ e.querySelector('h2').style.transform=`translateY(${40*(1-ease((t-10.9)/.5))}px)`;
+ e.querySelector('.pill').style.opacity=ease((t-11.5)/.4);
+};
+render(0);
+</script>

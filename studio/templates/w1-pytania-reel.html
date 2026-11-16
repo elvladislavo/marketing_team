@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="brand.css"><style>
+html,body{height:1920px}.slide{padding:150px 88px}
+.l{opacity:0}
+.end{position:absolute;inset:0;background:var(--red);display:flex;flex-direction:column;justify-content:center;padding:88px;opacity:0}
+.end h2{font:800 150px/1 "Archivo Variable";letter-spacing:-.04em;color:#fff}
+.end h2 em{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400}
+.end .pill{margin-top:80px;background:var(--ink);color:var(--bone);font:800 76px "Archivo Variable";padding:36px 48px;border-radius:12px;display:inline-block;align-self:flex-start}
+.end .u{margin-top:50px;font:600 46px ui-monospace,monospace;color:#fff}
+h1{font-size:108px}
+.hook{margin-top:50px}
+.list{margin-top:50px;display:flex;flex-direction:column;gap:20px}
+.q{display:flex;gap:26px;align-items:flex-start;opacity:0;border-top:2px solid rgba(239,234,225,.25);padding-top:20px}
+.n{font:800 84px/1 "Archivo Variable";color:transparent;-webkit-text-stroke:3px var(--red);width:118px;flex:none}
+.qt{font-weight:800;font-size:56px;line-height:1.05;letter-spacing:-.03em}
+.a{font:600 31px/1.3 ui-monospace,monospace;color:var(--lime);margin-top:12px;opacity:0}
+</style>
+<div class="slide"><div class="top"><span class="logo">el</span><span>Warszawa</span></div>
+<div class="hook"><div class="bar l" id="b"></div>
+<h1><span class="l" id="h1" style="display:block">5 pytań, zanim</span><span class="l" id="h2" style="display:block"><em>zamówisz</em> stronę</span></h1></div>
+<div class="list"><div class="q" id="q0"><div class="n">01</div><div><div class="qt">Czy pliki są <em>moje</em>?</div><div class="a" id="a0">Tak. Pliki i dostępy zostają u Ciebie.</div></div></div><div class="q" id="q1"><div class="n">02</div><div><div class="qt">Czy sam zmienię <em>treści</em>?</div><div class="a" id="a1">Tak. Na stronach firmowych treść jest edytowalna.</div></div></div><div class="q" id="q2"><div class="n">03</div><div><div class="qt">Czy ktoś gwarantuje <em>Google</em>?</div><div class="a" id="a2">Nikt uczciwy. Uciekaj od takich obietnic.</div></div></div><div class="q" id="q3"><div class="n">04</div><div><div class="qt">Co <em>nie</em> jest w cenie?</div><div class="a" id="a3">Hosting i domena nie wchodzą w cenę.</div></div></div><div class="q" id="q4"><div class="n">05</div><div><div class="qt">Jak wygląda <em>proces</em>?</div><div class="a" id="a4">Mówisz, czego chcesz → układ, potem kod → testy i wdrożenie.</div></div></div></div></div>
+<div class="end" id="end"><h2>Pytaj<br><em>śmiało.</em></h2><div class="pill">Napisz w DM →</div><div class="u">@elvladislavo_com</div></div>
+<script>
+const C=x=>Math.min(Math.max(x,0),1),ease=x=>1-Math.pow(1-C(x),3);
+const show=(id,t0,t,d=0.5,dy=40)=>{const e=document.getElementById(id),k=ease((t-t0)/d);e.style.opacity=k;e.style.transform=`translateY(${dy*(1-k)}px)`;return k};
+window.render=t=>{
+ show('b',0,t,.3,0);show('h1',0,t,.4,50);show('h2',.25,t,.4,50);
+ for(let i=0;i<5;i++){const s=1.8+i*2.1;const k=show('q'+i,s,t,.4,50);
+  const a=document.getElementById('a'+i),ka=ease((t-s-.5)/.4);a.style.opacity=ka;a.style.transform=`translateX(${-30*(1-ka)}px)`;
+  document.getElementById('q'+i).style.transform=`translateY(${50*(1-k)}px) scale(${.94+.06*ease((t-s)/.35)})`}
+ const e=document.getElementById('end');e.style.opacity=ease((t-12.6)/.35);
+ const eh=e.querySelector('h2'),ep=e.querySelector('.pill'),eu=e.querySelector('.u');
+ eh.style.transform=`translateY(${40*(1-ease((t-12.7)/.5))}px)`;ep.style.opacity=ease((t-13.3)/.4);eu.style.opacity=ease((t-13.6)/.4);
+};
+render(0);
+</script>
