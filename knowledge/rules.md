@@ -9,3 +9,4 @@
 - Any DM/comment asking about price or a website = lead → lead-catcher, reply fast (target < 1h in working hours).
 - **DMs & comments: the human answers them personally for now.** comment-dm-agent only drafts suggested replies and logs leads; it never replies.
 - No bought followers, follow/unfollow, engagement pods or spam DMs.
+- **(2026-11-16) No content about client projects (kameralnybarbershop.pl, zhyvitsa.pl) for now** - no Reels, posts or case studies. Keep content general (tips, process, pricing, myths). DMs may still link them as portfolio only if the human decides.
