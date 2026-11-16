@@ -10,3 +10,4 @@
 - **DMs & comments: the human answers them personally for now.** comment-dm-agent only drafts suggested replies and logs leads; it never replies.
 - No bought followers, follow/unfollow, engagement pods or spam DMs.
 - **(2026-11-16) No content about client projects (kameralnybarbershop.pl, zhyvitsa.pl) for now** - no Reels, posts or case studies. Keep content general (tips, process, pricing, myths). DMs may still link them as portfolio only if the human decides.
+- **(2026-11-16) Always check language correctness before final generation/render/scheduling** — grammar, spelling, diacritics (ą ę ł ś ż ź ć ń ó), natural phrasing in PL/RU/UA/EN. Proofread every on-screen text, caption and post first; fix, then render/schedule.

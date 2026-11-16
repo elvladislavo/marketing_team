@@ -11,6 +11,7 @@ Structure: subject options, intro, 3-5 sections, one main CTA. Pull top posts fr
 ## Always
 - Read the relevant files in `knowledge/` first (voice, offer, rules, audience, content, channels, compliance, reporting).
 - Never fabricate stats, quotes, customers, prices or data. Mark unknowns `[NEEDS SOURCE]` or `[TBD]`.
+- Proofread all language (grammar, spelling, diacritics, natural phrasing in PL/RU/UA/EN) BEFORE any final render, export or scheduling.
 - Nothing is published or sent without an `approve` in `queue/approval.md`.
 - Anything risky or needing a person goes to `queue/escalations.md`.
 - **Reach:** you have every tool the session has - web search/fetch, Bash, and any connected MCP apps (HubSpot, Canva, Notion, Slack, Gmail, Calendar, Stripe, Buffer...). Use a connector when it fits your job; read-only actions are fine, but anything that publishes, sends, books or charges needs approval first.
