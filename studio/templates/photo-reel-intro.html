@@ -2,15 +2,16 @@
 <link rel="stylesheet" href="brand.css">
 <style>
 html,body{width:1080px;height:1920px;overflow:hidden;background:#0A0A0B}
-.ph{position:absolute;left:0;top:300px;width:1080px;height:1440px;background:url(../../brand/avatar/ref-front2.jpg) 0 0/1080px 1440px no-repeat;filter:grayscale(1) contrast(1.18) brightness(1.02)}
+.ph{position:absolute;left:0;top:300px;width:1080px;height:1440px;background:url(../../brand/avatar/ref-front2.jpg) 0 0/1080px 1440px no-repeat}
 #top{clip-path:polygon(180px 0,900px 0,900px 740px,730px 877px,330px 877px,180px 740px);transform-origin:525px 877px}
 #mouth{position:absolute;left:330px;width:400px;height:0;top:1177px;border-radius:40px 40px 50% 50%;background:radial-gradient(ellipse at 50% 100%,#5a1410,#1a0302 70%)}
 #vig{position:absolute;inset:0;background:linear-gradient(#0A0A0B 0 300px,transparent 430px,transparent 1480px,rgba(10,10,11,.92) 1620px)}
-.topbar{position:absolute;left:88px;right:88px;top:96px;display:flex;justify-content:space-between;font:500 26px ui-monospace,monospace;letter-spacing:.12em;color:rgba(255,255,255,.7)}
-.pxlogo{position:relative;display:block;width:66px;height:42px}.pxlogo i{position:absolute;width:6px;height:6px;background:#FF2E1F}
-#hook{position:absolute;left:88px;right:88px;top:160px;font:800 70px/1.05 "Archivo Variable";color:#FFFFFF;letter-spacing:-.03em}
+#vig{background:linear-gradient(#0A0A0B 0 330px,transparent 450px,transparent 1480px,rgba(10,10,11,.92) 1620px)}
+.topbar{position:absolute;left:88px;right:88px;top:110px;display:flex;justify-content:space-between;align-items:center;font:700 46px ui-monospace,monospace;letter-spacing:.14em;color:rgba(255,255,255,.7)}
+.pxlogo{position:relative;display:block;width:132px;height:84px}.pxlogo i{position:absolute;width:12px;height:12px;background:#FF2E1F}
+#hook{position:absolute;left:88px;right:88px;top:228px;font:800 66px/1.05 "Archivo Variable";color:#FFFFFF;letter-spacing:-.03em}
 #hook em{font-family:"Instrument Serif";font-weight:400;color:#FF2E1F}
-#sub{position:absolute;left:70px;right:70px;top:1560px;text-align:center;font:800 84px/1.08 "Archivo Variable";color:#FFFFFF;letter-spacing:-.03em}
+#sub{position:absolute;left:70px;right:70px;top:1540px;text-align:center;font:800 68px/1.1 "Archivo Variable";color:#FFFFFF;letter-spacing:-.03em}
 #sub .w{display:inline-block;margin:0 .12em}
 #sub .w.on{color:#FF2E1F}
 #end{position:absolute;inset:0;background:#FF2E1F;clip-path:inset(100% 0 0 0)}
@@ -24,18 +25,18 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#0A0A0B}
 <div id="top" class="ph"></div>
 <div id="vig"></div>
 <div class="topbar"><span id="px" class="pxlogo"></span><span>WARSZAWA</span></div>
-<div id="hook">Strony dla małych firm. <em>Od jednej osoby.</em></div>
+<div id="hook">Tworzę strony <em>internetowe</em></div>
 <div id="sub"></div>
 <div id="end"><h2>Twoja strona<br><em>następna?</em></h2><div class="cta">Napisz w DM →</div><div class="h">@elvladislavo_com<br>elvladislavo.com</div></div>
 <script>
 // pixel 'el' (lowercase, 5x7 + 3x7 bitmap)
 (()=>{const E=['.....','.###.','#...#','#####','#....','#...#','.###.'],L=['##.','.#.','.#.','.#.','.#.','.#.','###'];let h='';
-E.forEach((r,y)=>[...r].forEach((c,x)=>{if(c=='#')h+=`<i style="left:${x*6}px;top:${y*6}px"></i>`}));
-L.forEach((r,y)=>[...r].forEach((c,x)=>{if(c=='#')h+=`<i style="left:${(x+6)*6}px;top:${y*6}px"></i>`}));
+E.forEach((r,y)=>[...r].forEach((c,x)=>{if(c=='#')h+=`<i style="left:${x*12}px;top:${y*12}px"></i>`}));
+L.forEach((r,y)=>[...r].forEach((c,x)=>{if(c=='#')h+=`<i style="left:${(x+6)*12}px;top:${y*12}px"></i>`}));
 document.getElementById('px').innerHTML=h;})();
 
 // Script (proofread PL). Each line: [start time, text]. Words get syllable-timed mouth flaps.
-const LINES=[[0.4,'Cześć, jestem Uladzislau.'],[2.3,'Robię strony dla małych firm.'],[4.5,'Projekt, kod i wdrożenie. Wszystko sam.'],[7.3,'Landing page od 800 zł.'],[9.2,'Napisz w DM.']];
+const LINES=[[0.4,'Cześć, jestem Uladzislau.'],[2.3,'Tworzę strony internetowe dla przedsiębiorców i firm.'],[5.7,'Projekt, kod i wdrożenie. Wszystko sam.'],[8.5,'Landing page od 800 zł.'],[10.4,'Napisz w DM.']];
 const SYL=0.16, GAP=0.07; // seconds per syllable, pause between words
 const vow=w=>Math.max(1,(w.toLowerCase().match(/[aeiouyąęó]+/g)||[]).length);
 // build timeline
@@ -52,10 +53,10 @@ window.render=t=>{
  const sub=$('sub');
  if(cur<0){sub.innerHTML='';}else{sub.innerHTML=words.filter(x=>x.li===cur).map(x=>{const k=oC((t-x.t+0.05)/0.18);const on=t>=x.t&&t<x.end;return `<span class="w${on?' on':''}" style="opacity:${k};transform:translateY(${30*(1-k)}px) scale(${on?1.06:1})">${x.w}</span>`}).join(' ');}
  // hook fades after first line
- $('hook').style.opacity=1-oC((t-2.2)/.4);
+ 
  // end card
- const ke=oC((t-10.4)/.6);$('end').style.clipPath=`inset(${100-100*ke}% 0 0 0)`;
- [...$('end').children].forEach((e,i)=>{const k=oC((t-10.8-i*.15)/.45);e.style.opacity=k;e.style.transform=`translateY(${40*(1-k)}px)`});
+ const ke=oC((t-11.6)/.6);$('end').style.clipPath=`inset(${100-100*ke}% 0 0 0)`;
+ [...$('end').children].forEach((e,i)=>{const k=oC((t-12.0-i*.15)/.45);e.style.opacity=k;e.style.transform=`translateY(${40*(1-k)}px)`});
 };
 render(0);
 </script>

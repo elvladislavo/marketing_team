@@ -2,7 +2,7 @@
 
 ## PL (main)
 Cześć, jestem Uladzislau.
-Robię strony dla małych firm.
+Tworzę strony internetowe dla przedsiębiorców i firm.
 Projekt, kod i wdrożenie. Wszystko sam.
 Landing page od 800 złotych.
 Napisz w DM.

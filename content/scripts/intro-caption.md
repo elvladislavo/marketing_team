@@ -3,7 +3,7 @@
 ## Instagram (PL + EN)
 Cześć, jestem Uladzislau 👋
 
-Robię strony internetowe dla małych firm w Warszawie i w całej Polsce. Projekt, kod i wdrożenie robię sam, więc rozmawiasz z osobą, która naprawdę buduje Twoją stronę.
+Tworzę strony internetowe dla przedsiębiorców i firm w Warszawie i w całej Polsce. Projekt, kod i wdrożenie robię sam, więc rozmawiasz z osobą, która naprawdę buduje Twoją stronę.
 
 Landing page od 800 zł, strona firmowa od 1500 zł, sklep od 3200 zł. Dokładną cenę podaję po krótkiej rozmowie.
 
