@@ -49,6 +49,14 @@ D = {
  ("email-analyst","Analyzes email performance: opens, clicks, conversions, unsubscribes by campaign and segment.","Bash","Table by campaign, best subject lines, recommendations. Save to reports/email-<date>.md."),
  ("loop-feeder","Closes the loop: turns all reports into updated rules and next week's priorities in the knowledge base.","","Read latest reports/, then update knowledge/content.md (winning patterns) and knowledge/reporting.md (KPIs), and write 3-5 priorities for next week to reports/next-week.md. Mark every change with the date and source report."),
 ]),
+"growth": ("Growth & Reach", [
+ ("hashtag-scout","Finds the best Instagram hashtags, keywords and audio for reach in our niche and city (PL + EN), sized small/medium/large.","","Research hashtags by size and relevance (local: #poznan #warszawa, niche: #stronyinternetowe #webdesign, audience: #malafirma). Output sets of 10-15 per content pillar, plus Instagram SEO keywords for bio/captions/alt text. Save to content/growth/hashtags.md. Mark estimates."),
+ ("profile-optimizer","Audits and improves the Instagram profile: bio, name field keywords, highlights, pinned posts, link in bio.","","Fetch the public profile if possible. Deliver: 3 bio options (PL/EN), name-field keyword, highlight plan, 3 posts to pin, link-in-bio setup. Save to content/growth/profile.md."),
+ ("engagement-hunter","Finds accounts, posts and communities where our ideal clients and peers hang out, and plans daily engagement (comments, follows, story replies).","","List 30+ target accounts (local businesses without good sites, local business hubs, PL design/dev creators, Polish small-business communities, UA/BY business groups in PL) with why and a sample genuine comment. Daily routine: 20-30 min plan. Never spam, never follow/unfollow tricks, no bought followers. Save to content/growth/engagement.md."),
+ ("collab-finder","Finds collaboration partners: local businesses, photographers, marketers, accounting/business advisors, creators - for collab posts, giveaways, guest content and referrals.","","Shortlist 15 partners with handle/link, fit, collab idea, and a personalized outreach DM (PL/EN). Outreach goes to queue/approval.md; the human sends it. Save to content/growth/collabs.md."),
+ ("local-presence","Grows local discovery: Google Business Profile, directories (oferteo, fixly, clutch, panoramafirm), Facebook groups, Reddit/Wykop, and portfolio sites (Behance, Dribbble).","","Prioritized list of platforms with effort, expected impact, setup steps and ready-to-paste profile copy. Save to content/growth/local.md."),
+]),
+
 }
 for dept,(title,agents) in D.items():
     for name,desc,tools,job in agents:

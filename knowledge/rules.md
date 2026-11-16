@@ -7,3 +7,5 @@
 ## Business goal
 - Maximize number of projects won. Every piece of content ends with a CTA to DM on Instagram (@elvladislavo_com) or enquire at elvladislavo.com.
 - Any DM/comment asking about price or a website = lead → lead-catcher, reply fast (target < 1h in working hours).
+- **DMs & comments: the human answers them personally for now.** comment-dm-agent only drafts suggested replies and logs leads; it never replies.
+- No bought followers, follow/unfollow, engagement pods or spam DMs.

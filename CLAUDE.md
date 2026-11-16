@@ -11,7 +11,7 @@ content/     drafts, creative, email, blog, launch ...                          
 reports/     morning briefs, analytics, next-week priorities
 ```
 
-## Departments (35 Sonnet agents, `.claude/agents/`)
+## Departments (40 Sonnet agents, `.claude/agents/`)
 | Department | Agents |
 |---|---|
 | Research & Content | trend-spotter, audience-researcher, keyword-finder, post-writer, email-writer |
@@ -21,6 +21,7 @@ reports/     morning briefs, analytics, next-week priorities
 | Leads & Booking | lead-catcher, lead-scorer, call-booker, reminder, payment-link |
 | Search & Website | seo-writer, rank-tracker, page-updater, repurposer, lead-forms |
 | The Analytics Loop | post-analyst, call-tracker, revenue-tracker, email-analyst, loop-feeder |
+| Growth & Reach | hashtag-scout, profile-optimizer, engagement-hunter, collab-finder, local-presence |
 
 ## Skills
 `/setup-knowledge` (run first) · `/daily-run` · `/morning-brief` · `/approve` · `/analytics-loop` · `/launch-plan` · `/campaign-brief` · `/content-calendar` · `/social-posts` · `/email-sequence` · `/ad-copy` · `/seo-content-brief` · `/seo-audit` · `/competitor-analysis` · `/marketing-report`
