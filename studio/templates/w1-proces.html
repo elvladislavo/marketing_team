@@ -1,0 +1,50 @@
+<link rel="stylesheet" href="brand.css"><style>
+html,body{height:1920px}.slide{padding:150px 88px}
+.l{opacity:0}
+h1{font-size:132px}
+.hook{margin-top:150px}
+.steps{margin-top:110px;display:flex;flex-direction:column;gap:56px}
+.step{display:flex;align-items:center;gap:44px;opacity:0}
+.n{font:800 150px/1 "Archivo Variable";color:transparent;-webkit-text-stroke:3px var(--red);width:230px}
+.lab{font-weight:800;font-size:96px;letter-spacing:-.03em;flex:1}
+.lab small{display:block;font:500 30px ui-monospace,monospace;color:var(--bone2);letter-spacing:.08em;text-transform:uppercase;margin-top:8px}
+.vis{width:210px;height:150px;position:relative}
+.wire{border:4px solid var(--bone);border-radius:10px;width:210px;height:150px;position:relative;overflow:hidden}
+.wire i{position:absolute;background:var(--bone2);display:block}
+.cd{font:600 34px/1.35 ui-monospace,monospace;color:var(--lime);background:var(--ink2);border-radius:10px;padding:16px 20px;width:210px;height:150px;overflow:hidden;white-space:pre}
+.live{width:210px;height:150px;border:4px solid var(--lime);border-radius:10px;display:flex;align-items:center;justify-content:center;font:800 40px "Archivo Variable";color:var(--lime);letter-spacing:.04em}
+.end{position:absolute;inset:0;background:var(--red);display:flex;flex-direction:column;justify-content:center;padding:88px;opacity:0}
+.end h2{font:800 150px/1 "Archivo Variable";letter-spacing:-.04em;color:#fff}
+.end h2 em{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400}
+.end .pill{margin-top:80px;background:var(--ink);color:var(--bone);font:800 76px "Archivo Variable";padding:36px 48px;border-radius:12px;display:inline-block;align-self:flex-start}
+.end .u{margin-top:50px;font:600 46px ui-monospace,monospace;color:#fff}
+</style>
+<div class="slide"><div class="top"><span class="logo">el</span><span>Warszawa</span></div>
+<div class="hook"><div class="bar l" id="b"></div>
+<h1><span class="l" id="h1" style="display:block">Jedna osoba.</span><span class="l" id="h2" style="display:block"><em>Trzy</em> kroki.</span></h1></div>
+<div class="steps">
+ <div class="step" id="s1"><div class="n">01</div><div class="lab">Projekt<small>layout najpierw</small></div>
+  <div class="vis"><div class="wire"><i id="w1" style="left:14px;top:14px;width:182px;height:22px"></i><i id="w2" style="left:14px;top:48px;width:110px;height:88px"></i><i id="w3" style="left:136px;top:48px;width:60px;height:40px"></i><i id="w4" style="left:136px;top:98px;width:60px;height:38px;background:var(--red)"></i></div></div></div>
+ <div class="step" id="s2"><div class="n">02</div><div class="lab">Kod<small>pisany ręcznie</small></div>
+  <div class="vis"><div class="cd" id="cd"></div></div></div>
+ <div class="step" id="s3"><div class="n">03</div><div class="lab">Wdrożenie<small>na Twój hosting</small></div>
+  <div class="vis"><div class="live" id="lv">LIVE ✓</div></div></div>
+</div></div>
+<div class="end" id="end"><h2>Napisz<br>w <em>DM</em> →</h2><div class="pill">od 800 zł</div><div class="u">@elvladislavo_com · elvladislavo.com</div></div>
+<script>
+const C=x=>Math.min(Math.max(x,0),1),ease=x=>1-Math.pow(1-C(x),3);
+const show=(id,t0,t,d=0.5,dy=40)=>{const e=document.getElementById(id),k=ease((t-t0)/d);e.style.opacity=k;e.style.transform=`translateY(${dy*(1-k)}px)`;return k};
+const code='<h1>Firma</h1>\n<a href=\n "#kontakt">';
+window.render=t=>{
+ show('b',0,t,.3,0);show('h1',0,t,.4,50);show('h2',.25,t,.4,50);
+ // steps
+ show('s1',1.6,t);show('s2',4.0,t);show('s3',6.4,t);
+ [['w1',1.9],['w2',2.2],['w3',2.5],['w4',2.8]].forEach(([id,s])=>{const k=ease((t-s)/.35);const e=document.getElementById(id);e.style.opacity=k;e.style.transform=`scale(${.6+.4*k})`});
+ const n=Math.floor(C((t-4.4)/2)*code.length);document.getElementById('cd').textContent=code.slice(0,n)+(Math.floor(t*3)%2&&t>4?'▍':'');
+ const lv=document.getElementById('lv');const k=ease((t-6.9)/.4);lv.style.transform=`scale(${.8+.2*k})`;lv.style.opacity=k;
+ // end card
+ const e=document.getElementById('end');e.style.opacity=ease((t-9.2)/.35);
+ const eh=e.querySelector('h2'),ep=e.querySelector('.pill');eh.style.transform=`translateY(${40*(1-ease((t-9.3)/.5))}px)`;ep.style.opacity=ease((t-9.9)/.4);
+};
+render(0);
+</script>
