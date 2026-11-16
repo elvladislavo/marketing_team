@@ -8,7 +8,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--ink)}
 .hook{left:88px;top:170px;width:904px;font-weight:800;font-size:92px;line-height:1.02;letter-spacing:-.035em;color:var(--bone)}
 .hook .w{display:inline-block;will-change:transform}
 .serif{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;color:var(--red);letter-spacing:-.01em}
-#uline{left:88px;top:405px;height:8px;background:var(--red);width:0}
+#uline{left:88px;top:482px;height:8px;background:var(--red);width:0}
 .top{left:88px;top:96px;font:500 26px ui-monospace,monospace;letter-spacing:.12em;color:rgba(239,234,225,.6);right:88px;display:flex;justify-content:space-between}
 .logo{color:var(--red);font:800 30px "Archivo Variable";letter-spacing:0}
 svg{position:absolute;left:0;top:0}
@@ -56,18 +56,18 @@ svg{position:absolute;left:0;top:0}
   </div>
 </div>
 <div id="end" class="abs"><h2>Masz te<br>3 <em>rzeczy</em>?</h2><div class="cta">Napisz w DM →</div><div class="h">@elvladislavo_com<br>elvladislavo.com</div></div>
-<canvas id="grain" width="540" height="960"></canvas>
+<canvas id="grain" width="270" height="480"></canvas>
 <script>
 const $=id=>document.getElementById(id), C=(x)=>Math.min(Math.max(x,0),1);
 const oC=x=>1-Math.pow(1-C(x),3), oB=x=>{x=C(x);const c=1.70158;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)}, io=x=>{x=C(x);return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2};
-function words(el,html){el.innerHTML=html.split(' ').map(w=>`<span class="w">${w}</span>`).join(' ')}
-words($('hook'),'Co klient widzi w pierwszej <span class="serif">sekundzie?</span>');
-words($('hook2'),'Reszta to <span class="serif">dodatki.</span>');
+function words(el,ws){el.innerHTML=ws.map(w=>w.startsWith('*')?`<span class="w serif">${w.slice(1)}</span>`:`<span class="w">${w}</span>`).join(' ')}
+words($('hook'),['Co','klient','widzi','w','pierwszej','*sekundzie?']);
+words($('hook2'),['Reszta','to','*dodatki.']);
 // grid
 const g=$('grid');for(let i=1;i<6;i++){g.insertAdjacentHTML('beforeend',`<div class="gl v" style="left:${i*180}px;top:960px;width:2px;height:0"></div>`)}
 for(let i=1;i<10;i++){g.insertAdjacentHTML('beforeend',`<div class="gl h" style="top:${i*192}px;left:540px;height:2px;width:0"></div>`)}
 const phone=$('phone'),P=2*(560+1010);phone.style.strokeDasharray=P;
-const cards=[...document.querySelectorAll('.c')], cv=$('grain').getContext('2d'), img=cv.createImageData(540,960);
+const cards=[...document.querySelectorAll('.c')], cv=$('grain').getContext('2d'), img=cv.createImageData(270,480);
 function grain(f){let s=f*9301+49297;for(let i=0;i<img.data.length;i+=4){s=(s*1103515245+12345)&0x7fffffff;const v=(s>>16)&255;img.data[i]=img.data[i+1]=img.data[i+2]=v;img.data[i+3]=255}cv.putImageData(img,0,0)}
 function stagger(el,t0,t,dy=70){[...el.querySelectorAll('.w')].forEach((w,i)=>{const k=oC((t-t0-i*.08)/.55);w.style.opacity=k;w.style.transform=`translateY(${dy*(1-k)}px)`})}
 function show(el,k,dx=0,dy=0,s=1){el.style.opacity=C(k);el.style.transform=`translate(${dx}px,${dy}px) scale(${s})`}
