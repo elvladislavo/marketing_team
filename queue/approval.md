@@ -15,7 +15,7 @@ Change `pending` to `approve` or `reject` (add a note). Agents only publish/send
 | 2026-11-16 | captions.md day 1 Threads | Threads Mon 17.11 | approve | scheduled | Buffer 6afb29410c8c027c5734bac9, 12:30 |
 | 2026-11-16 | content/media/w1-proces-a.mp4 (with audio) + captions.md day 2 | Instagram Tue 18.11 | approve | scheduled | Buffer 6afb27c0d256d7c2468b00d6, 18.11 18:30 |
 | 2026-11-16 | captions.md day 2 Threads | Threads Tue 18.11 | approve | scheduled | Buffer 6afb2944b34088cbfd81e8fc, 12:30 |
-| 2026-11-16 | content/media/w1-barbershop-1..5.png + captions.md day 3 | Instagram Wed 19.11 | approve | pending | client permission: yes |
+| 2026-11-16 | content/media/w1-barbershop-reel-a.mp4 + captions.md day 3 | Instagram Wed 19.11 | approve | scheduled | Buffer 6afb2a02e944468195957b28, 18:30 |
 | 2026-11-16 | captions.md day 3 Threads | Threads Wed 19.11 | approve | scheduled | Buffer 6afb2947b34088cbfd81eb0b, 12:30 |
 | 2026-11-16 | content/media/w1-szybkosc-a.mp4 (with audio) + captions.md day 4 | Instagram Thu 20.11 | approve | scheduled | Buffer 6afb27f10c8c027c5733d78c, 20.11 18:30 |
 | 2026-11-16 | captions.md day 4 Threads (3-part thread) | Threads Thu 20.11 | approve | scheduled | Buffer 6afb294b0db12e0a127ab219, 12:30 |
