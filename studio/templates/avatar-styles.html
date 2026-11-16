@@ -1,0 +1,55 @@
+<!doctype html><meta charset="utf-8">
+<link rel="stylesheet" href="brand.css">
+<style>html,body{width:1080px;height:1350px;overflow:hidden}
+svg{position:absolute;left:0;top:0}</style>
+<svg id="s" width="1080" height="1350" viewBox="0 0 400 500"></svg>
+<script>
+const q=new URLSearchParams(location.search), S=+q.get('s')||1;
+let seed=11;const R=()=>(seed=(seed*16807)%2147483647)/2147483647;
+const el=document.getElementById('s');
+document.body.style.background=['','#EFEAE1','#C8FF3D','#EFEAE1','#0A0A0B','#17171A','#0A0A0B'][S];
+
+// 1 · MINIMAL ICON — pure geometry
+if(S===1) el.innerHTML=`
+ <path d="M60,500 q0,-120 140,-120 q140,0 140,120z" fill="#E8441E"/>
+ <path d="M80,250 q-20,-170 120,-170 q140,0 120,170 q0,120 -30,150 h-180 q-30,-30 -30,-150z" fill="#2E1E14"/>
+ <circle cx="200" cy="250" r="92" fill="#F1C7A6"/>
+ <path d="M108,260 a92,92 0 0,0 184,0 q-30,40 -92,40 q-62,0 -92,-40z" fill="#6E4C34"/>
+ <path d="M110,190 q90,-70 180,0 q-40,-90 -90,-90 q-50,0 -90,90z" fill="#2E1E14"/>
+ <circle cx="168" cy="240" r="7" fill="#111"/><circle cx="232" cy="240" r="7" fill="#111"/>
+ <path d="M175,290 q25,18 50,0" stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round"/>`;
+
+// 3 · BOLD OUTLINE CARTOON — thick ink lines, flat fills, exaggerated
+if(S===3){const K='stroke="#111" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"';
+ let sc='';for(let i=0;i<14;i++){const a=Math.PI*(1.05+i*0.064);sc+=`<circle cx="${200+Math.cos(a)*150}" cy="${230+Math.sin(a)*150}" r="34" fill="#3A2416" ${K}/>`;}
+ let side='';[[62,300],[70,350],[86,398],[338,300],[330,350],[314,398]].forEach(([x,y])=>side+=`<circle cx="${x}" cy="${y}" r="28" fill="#3A2416" ${K}/>`);
+ el.innerHTML=`
+ <path d="M40,500 q10,-100 100,-110 l60,30 l60,-30 q90,10 100,110z" fill="#F0522A" ${K}/>
+ ${side}${sc}
+ <ellipse cx="200" cy="260" rx="112" ry="132" fill="#F6CDAE" ${K}/>
+ <path d="M90,272 q6,140 110,150 q104,-10 110,-150 q-20,56 -44,66 q-66,-24 -132,0 q-24,-10 -44,-66z" fill="#7A5236" ${K}/>
+ <path d="M132,320 q68,-44 136,0 q-30,-6 -68,-6 q-38,0 -68,6z" fill="#5C3E2A" ${K}/>
+ <path d="M140,330 q60,70 120,0z" fill="#fff" ${K}/>
+ <path d="M196,226 q-16,50 -20,70 q24,16 48,0 q-4,-20 -20,-70" fill="#EDB38F" ${K}/>
+ <ellipse cx="155" cy="236" rx="24" ry="20" fill="#fff" ${K}/><ellipse cx="245" cy="236" rx="24" ry="20" fill="#fff" ${K}/>
+ <circle cx="158" cy="238" r="8" fill="#111"/><circle cx="248" cy="238" r="8" fill="#111"/>
+ <path d="M122,200 q32,-20 64,-4" fill="none" stroke="#111" stroke-width="14" stroke-linecap="round"/>
+ <path d="M214,196 q32,-16 64,4" fill="none" stroke="#111" stroke-width="14" stroke-linecap="round"/>
+ ${[[130,150],[172,136],[218,138],[264,150],[106,186],[294,186]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="28" fill="#3A2416" ${K}/>`).join('')}`;}
+
+// 5 · DUOTONE POSTER — brand ink/red, halftone-ish, graphic
+if(S===5){let dots='';for(let y=90;y<470;y+=7)for(let x=60;x<340;x+=7){const dx=(x-200)/120,dy=(y-260)/150;const f=dx*dx+dy*dy;if(f<1){const r=1.2+2.3*(1-f)*(0.6+0.4*Math.sin(x*.05+y*.03));dots+=`<circle cx="${x}" cy="${y}" r="${r.toFixed(2)}" fill="#FF2E1F" opacity=".55"/>`}}
+ let cur='';for(let i=0;i<70;i++){const a=R()*Math.PI*2,d=Math.sqrt(R());const x=200+Math.cos(a)*150*d,y=150+Math.sin(a)*80*d-10,r=10+R()*10;cur+=`<path d="M${x-r},${y} a${r},${r} 0 1,1 ${r*1.6},${r*.6}" fill="none" stroke="#EFEAE1" stroke-width="5" stroke-linecap="round"/>`}
+ let side='';for(let i=0;i<40;i++){const L=R()<.5;const x=(L?78:322)+(R()-.5)*50,y=230+R()*190,r=9+R()*8;side+=`<path d="M${x-r},${y} a${r},${r} 0 1,1 ${r*1.6},${r*.6}" fill="none" stroke="#EFEAE1" stroke-width="5" stroke-linecap="round"/>`}
+ el.innerHTML=`${dots}
+ <path d="M30,500 q10,-110 110,-120 l60,30 l60,-30 q100,10 110,120z" fill="#FF2E1F"/>
+ ${side}
+ <path d="M200,118 q92,0 106,96 q10,70 -4,112 q-16,64 -102,98 q-86,-34 -102,-98 q-14,-42 -4,-112 q14,-96 106,-96z" fill="none" stroke="#EFEAE1" stroke-width="4"/>
+ <path d="M98,262 q-2,70 30,112 q30,42 72,46 q42,-4 72,-46 q32,-42 30,-112 q-14,52 -34,66 q-30,-20 -68,-20 q-38,0 -68,20 q-20,-14 -34,-66z" fill="#EFEAE1" opacity=".9"/>
+ <path d="M146,326 q54,40 108,0z" fill="#0A0A0B"/>
+ <path d="M192,214 q-6,46 -22,74 q-6,16 8,22 q12,6 22,0 q10,6 22,0 q14,-6 8,-22 q-16,-28 -22,-74" fill="none" stroke="#EFEAE1" stroke-width="4"/>
+ <path d="M130,244 q26,-22 52,0" stroke="#EFEAE1" stroke-width="5" fill="none"/><path d="M218,244 q26,-22 52,0" stroke="#EFEAE1" stroke-width="5" fill="none"/>
+ <circle cx="156" cy="240" r="6" fill="#C8FF3D"/><circle cx="244" cy="240" r="6" fill="#C8FF3D"/>
+ <path d="M124,214 q30,-14 62,-6" stroke="#EFEAE1" stroke-width="10" fill="none" stroke-linecap="round"/><path d="M214,208 q32,-8 62,6" stroke="#EFEAE1" stroke-width="10" fill="none" stroke-linecap="round"/>
+ ${cur}`;}
+</script>

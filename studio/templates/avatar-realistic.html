@@ -1,0 +1,98 @@
+<!doctype html><meta charset="utf-8">
+<link rel="stylesheet" href="brand.css">
+<style>html,body{width:1080px;height:1920px;overflow:hidden;background:var(--ink)}
+#cap{position:absolute;left:88px;right:88px;top:150px;font:800 76px/1.05 "Archivo Variable";color:var(--bone);letter-spacing:-.03em}
+#cap em{font-family:"Instrument Serif";font-weight:400;color:var(--lime)}</style>
+
+<svg id="s" width="1080" height="1920" viewBox="0 0 400 711" style="position:absolute;left:0;top:0"></svg>
+<script>
+// seeded RNG so every frame draws identical texture
+let seed=7;const R=()=>(seed=(seed*16807)%2147483647)/2147483647;
+const CUT=322; // split line (between lips)
+function curls(cx,cy,rx,ry,n,rmin,rmax,cols,w){let o='';for(let i=0;i<n;i++){const a=R()*Math.PI*2,d=Math.sqrt(R());const x=cx+Math.cos(a)*rx*d,y=cy+Math.sin(a)*ry*d,r=rmin+R()*(rmax-rmin);const c=cols[Math.floor(R()*cols.length)];
+ // a curl = loop path with a highlight arc
+ o+=`<path d="M${x-r},${y} a${r},${r} 0 1,1 ${r*1.6},${r*.6} a${r*.7},${r*.7} 0 1,1 ${-r*1.1},${-r*.9}" fill="none" stroke="${c}" stroke-width="${w}" stroke-linecap="round"/>`;
+ if(R()>.6)o+=`<path d="M${x-r*.5},${y-r*.7} a${r*.8},${r*.8} 0 0,1 ${r},${r*.2}" fill="none" stroke="#6B4A33" stroke-width="${w*.35}" stroke-linecap="round" opacity=".7"/>`;}return o}
+function stubble(path,n,x0,y0,x1,y1,col,len){let o='';for(let i=0;i<n;i++){const x=x0+R()*(x1-x0),y=y0+R()*(y1-y0),a=1.2+R()*.8;o+=`<line x1="${x}" y1="${y}" x2="${x+Math.cos(a)*len}" y2="${y+Math.sin(a)*len}" stroke="${col}" stroke-width=".9" opacity="${.35+R()*.4}"/>`}return `<g clip-path="url(#${path})">${o}</g>`}
+const HC=['#2A1A10','#33200F','#3D2716','#24160C'];
+const beardBase='M98,262 q-2,70 30,112 q30,42 72,46 q42,-4 72,-46 q32,-42 30,-112 q-14,52 -34,66 q-30,-20 -68,-20 q-38,0 -68,20 q-20,-14 -34,-66 z';
+const faceP='M200,118 q92,0 106,96 q10,70 -4,112 q-16,64 -102,98 q-86,-34 -102,-98 q-14,-42 -4,-112 q14,-96 106,-96 z';
+document.getElementById('s').innerHTML=`
+<defs>
+ <radialGradient id="skin" cx="50%" cy="42%" r="62%"><stop offset="0" stop-color="#F6D2B5"/><stop offset=".7" stop-color="#EBBC98"/><stop offset="1" stop-color="#D49C79"/></radialGradient>
+ <linearGradient id="nose" x1="0" x2="1"><stop offset="0" stop-color="#E2AD8A"/><stop offset=".55" stop-color="#F6CFB0"/><stop offset="1" stop-color="#D99F7C"/></linearGradient>
+ <radialGradient id="iris" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#8E9A6B"/><stop offset=".6" stop-color="#6F805D"/><stop offset="1" stop-color="#3E4A35"/></radialGradient>
+ <linearGradient id="shirt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F0522A"/><stop offset="1" stop-color="#C93A17"/></linearGradient>
+ <radialGradient id="blush" r="50%"><stop offset="0" stop-color="#E8907A" stop-opacity=".45"/><stop offset="1" stop-color="#E8907A" stop-opacity="0"/></radialGradient>
+ <clipPath id="beardC"><path d="${beardBase}"/></clipPath>
+ <clipPath id="top"><rect x="0" y="-100" width="400" height="${CUT+100}"/></clipPath>
+ <clipPath id="bot"><rect x="0" y="${CUT}" width="400" height="500"/></clipPath>
+</defs>
+<g transform="translate(0,110)">
+ <!-- shirt + neck -->
+ <path d="M30,601 q6,-120 100,-150 l70,30 l70,-30 q94,30 100,150 z" fill="url(#shirt)"/>
+ <path d="M150,452 q50,62 100,0" fill="none" stroke="#A92F12" stroke-width="6"/>
+ <path d="M160,380 h80 v80 q-40,40 -80,0 z" fill="#E3AE8B"/><path d="M160,400 q40,26 80,0 v20 q-40,22 -80,0z" fill="#C98B68" opacity=".6"/>
+ <!-- mullet / back hair -->
+ <path d="M70,170 q-30,120 -14,250 q20,50 60,40 q-10,-120 10,-260 z" fill="#24160C"/><path d="M330,170 q30,120 14,250 q-20,50 -60,40 q10,-120 -10,-260 z" fill="#24160C"/>
+ ${curls(80,330,32,115,130,6,11,HC,3.2)}${curls(320,320,32,105,120,6,11,HC,3.2)}
+ <!-- mouth cavity -->
+ <ellipse cx="200" cy="${CUT}" rx="62" ry="16" fill="#3A0E0A"/>
+ <!-- BOTTOM: jaw, lower teeth, lip, beard -->
+ <g clip-path="url(#bot)">
+  <path d="${faceP}" fill="url(#skin)"/>
+  <path d="M146,${CUT} q54,40 108,0 z" fill="#F5F0E1"/><path d="M146,${CUT} q54,40 108,0" fill="none" stroke="#C9C0A8" stroke-width="1.5"/>
+  ${[0,1,2,3,4,5].map(i=>`<line x1="${158+i*17}" y1="${CUT}" x2="${159+i*17}" y2="${CUT+14-Math.abs(i-2.5)*3}" stroke="#D8CFB8" stroke-width="1.2"/>`).join('')}
+  <path d="M140,${CUT+2} q60,58 120,0 q-8,24 -60,28 q-52,-4 -60,-28z" fill="#D9837A"/>
+  <path d="${beardBase}" fill="#6B4A33" opacity=".92"/>
+  ${stubble('beardC',2200,98,262,302,430,'#3A2618',6)}
+  <path d="M150,${CUT+30} q50,26 100,0" fill="none" stroke="#C4746A" stroke-width="3" opacity=".7"/>
+ </g>
+ <!-- TOP: the lid -->
+ <g id="lid">
+  <!-- back curls volume -->
+  <path d="M86,230 q-30,-170 114,-176 q144,6 114,176 q-14,-80 -114,-96 q-100,16 -114,96z" fill="#24160C"/>
+  ${curls(200,110,140,72,260,6,12,HC,3.2)+curls(200,105,130,60,120,5,9,['#5A3B25','#4A3121'],2)}
+  <g clip-path="url(#top)">
+   <ellipse cx="94" cy="262" rx="15" ry="26" fill="#E0A884"/><path d="M90,250 q8,10 2,22" stroke="#B9785A" stroke-width="2.5" fill="none"/>
+   <ellipse cx="306" cy="262" rx="15" ry="26" fill="#E0A884"/><path d="M310,250 q-8,10 -2,22" stroke="#B9785A" stroke-width="2.5" fill="none"/>
+   <path d="${faceP}" fill="url(#skin)"/>
+   <ellipse cx="200" cy="170" rx="70" ry="26" fill="#FFF1E4" opacity=".35"/><path d="M106,230 q14,40 30,60" stroke="#C98B68" stroke-width="10" opacity=".25" fill="none"/><path d="M294,230 q-14,40 -30,60" stroke="#C98B68" stroke-width="10" opacity=".25" fill="none"/><ellipse cx="138" cy="286" rx="26" ry="16" fill="url(#blush)"/><ellipse cx="262" cy="286" rx="26" ry="16" fill="url(#blush)"/>
+   <path d="${beardBase}" fill="#6B4A33" opacity=".85"/>
+   ${stubble('beardC',1400,98,262,302,CUT,'#3A2618',6)}
+   <!-- mustache -->
+   <path d="M132,${CUT-4} q20,-34 68,-30 q48,-4 68,30 q-14,-8 -30,-10 q-20,-12 -38,0 q-18,-12 -38,0 q-16,2 -30,10z" fill="#5C3E2A"/>
+   ${stubble('top',0,0,0,0,0,'#000',0)}
+   <!-- upper teeth -->
+   <path d="M146,${CUT} q54,-12 108,0 v-6 q-54,-10 -108,0z" fill="#F7F2E3"/>
+   ${[0,1,2,3,4,5].map(i=>`<line x1="${158+i*17}" y1="${CUT-9}" x2="${158+i*17}" y2="${CUT}" stroke="#D8CFB8" stroke-width="1.2"/>`).join('')}
+  </g>
+  <!-- nose (long, rounded tip) -->
+  <path d="M192,214 q-6,46 -22,74 q-6,16 8,22 q12,6 22,0 q10,6 22,0 q14,-6 8,-22 q-16,-28 -22,-74 z" fill="url(#nose)"/>
+  <ellipse cx="200" cy="296" rx="16" ry="11" fill="#F3C6A6"/><ellipse cx="203" cy="292" rx="6" ry="4" fill="#FBE3D1" opacity=".8"/>
+  <path d="M182,306 q6,4 12,0" stroke="#9E5E45" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M206,306 q6,4 12,0" stroke="#9E5E45" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <!-- eyes (smiling squint) -->
+  ${[[156,1],[244,-1]].map(([x,f])=>`
+   <path d="M${x-26},244 q26,-22 52,0 q-26,14 -52,0z" fill="#FBF6EE"/>
+   <g clip-path="url(#e${x})"><circle class="pupil" cx="${x}" cy="242" r="9.5" fill="url(#iris)"/><circle class="pupil" cx="${x}" cy="242" r="4.2" fill="#111"/><circle class="pupil" cx="${x+3}" cy="239" r="2" fill="#fff"/></g>
+   <clipPath id="e${x}"><path d="M${x-26},244 q26,-22 52,0 q-26,14 -52,0z"/></clipPath>
+   <path d="M${x-28},245 q28,-26 56,0" fill="none" stroke="#3A2618" stroke-width="3.2" stroke-linecap="round"/>
+   <path d="M${x-20},252 q20,8 40,0" fill="none" stroke="#C98B68" stroke-width="2" opacity=".8"/>
+   <path class="lidb" d="M${x-27},244 q27,-24 54,0 z" fill="#EBBC98" opacity="0"/>`).join('')}
+  <!-- brows (thick, straight-ish) -->
+  <path class="brow" d="M124,214 q30,-14 62,-6" stroke="#2A1A10" stroke-width="11" fill="none" stroke-linecap="round"/>
+  <path class="brow" d="M214,208 q32,-8 62,6" stroke="#2A1A10" stroke-width="11" fill="none" stroke-linecap="round"/>
+  <!-- fringe curls over forehead -->
+  ${curls(200,150,96,24,120,5,10,HC,3)+curls(200,146,90,20,50,4,7,['#5A3B25'],1.8)}
+ </g>
+</g>`;
+// talking: envelope per syllable (later: real voice amplitude)
+const syl=[.15,.35,.55,.8,1.0,1.2,1.45,1.65,1.9,2.1];
+window.render=t=>{
+ let open=0;syl.forEach(s=>{const d=t-s;if(d>0&&d<.18)open=Math.max(open,Math.sin(d/.18*Math.PI))});
+ document.getElementById('lid').setAttribute('transform',`translate(0,${-40*open}) rotate(${-6*open} 200 ${CUT})`);
+ const blink=(t%2.6>2.45);document.querySelectorAll('.lidb').forEach(e=>e.setAttribute('opacity',blink?1:0));
+ document.querySelectorAll('.brow').forEach(e=>e.setAttribute('transform',`translate(0,${-5*open})`));
+};
+window.render(0);
+</script>
