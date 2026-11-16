@@ -37,3 +37,4 @@ reports/     morning briefs, analytics, next-week priorities
 ## Studio (images & animated Reels)
 `studio/` renders brand-styled content: `node render.js image <html> <png>` (1080x1350 carousel slides) and `node render.js video <html> <mp4> <secs> 30` (1080x1920 Reels, animation in `window.render(t)`). Output goes to `content/media/`. Run `npm i` in `studio/` first in a new session.
 Buffer needs a **public URL** for media: upload files to a public host (e.g. elvladislavo.com/media/) before scheduling Instagram posts.
+Media hosting: the repo is public, so Buffer uses `https://raw.githubusercontent.com/elvladislavo/marketing_team/<branch>/content/media/<file>` - commit & push media before scheduling, and never delete scheduled media from that branch.

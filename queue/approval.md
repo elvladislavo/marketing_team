@@ -13,11 +13,11 @@ Change `pending` to `approve` or `reject` (add a note). Agents only publish/send
 | 2026-11-16 | content/growth/collabs.md#8 outreach DM to JCI POZ | Meetup message | PL+EN DM, human sends | pending | collab-finder; verify handle first |
 | 2026-11-16 | content/media/w1-ceny-1..6.png + captions.md day 1 | Instagram Mon 17.11 | approval-desk: approve | pending | carousel |
 | 2026-11-16 | captions.md day 1 Threads | Threads Mon 17.11 | approve | pending | |
-| 2026-11-16 | content/media/w1-proces.mp4 + captions.md day 2 | Instagram Tue 18.11 | approve | pending | Reel, add IG audio |
+| 2026-11-16 | content/media/w1-proces.mp4 + captions.md day 2 | Instagram Tue 18.11 | approve | scheduled | Buffer 6afb27c0d256d7c2468b00d6, 18.11 18:30 |
 | 2026-11-16 | captions.md day 2 Threads | Threads Tue 18.11 | approve | pending | |
 | 2026-11-16 | content/media/w1-barbershop-1..5.png + captions.md day 3 | Instagram Wed 19.11 | approve | pending | client permission: yes |
 | 2026-11-16 | captions.md day 3 Threads | Threads Wed 19.11 | approve | pending | |
-| 2026-11-16 | content/media/w1-szybkosc.mp4 + captions.md day 4 | Instagram Thu 20.11 | approve | pending | Reel, add IG audio |
+| 2026-11-16 | content/media/w1-szybkosc.mp4 + captions.md day 4 | Instagram Thu 20.11 | approve | scheduled | Buffer 6afb27f10c8c027c5733d78c, 20.11 18:30 |
 | 2026-11-16 | captions.md day 4 Threads (3-part thread) | Threads Thu 20.11 | approve | pending | |
 | 2026-11-16 | content/media/w1-pytania-1..6.png + captions.md day 5 | Instagram Fri 21.11 | approve | pending | carousel |
 | 2026-11-16 | captions.md day 5 Threads | Threads Fri 21.11 | approve | pending | |
