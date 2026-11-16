@@ -1,0 +1,55 @@
+<!doctype html><meta charset="utf-8">
+<link rel="stylesheet" href="brand.css">
+<style>
+html,body{width:1080px;height:1920px;overflow:hidden;background:#0A0A0B}
+.ph{position:absolute;left:0;top:300px;width:1080px;height:1440px;background:url(../../brand/avatar/ref-front.jpg) 0 0/1080px 1440px no-repeat}
+#top{clip-path:polygon(120px 0,960px 0,960px 690px,800px 838px,280px 838px,120px 690px);transform-origin:540px 838px}
+#mouth{position:absolute;left:285px;width:510px;height:0;top:1138px;border-radius:40px 40px 50% 50%;background:radial-gradient(ellipse at 50% 100%,#5a1410,#1a0302 70%)}
+#vig{position:absolute;inset:0;background:linear-gradient(#0A0A0B 0 300px,transparent 430px,transparent 1480px,rgba(10,10,11,.92) 1620px)}
+.topbar{position:absolute;left:88px;right:88px;top:96px;display:flex;justify-content:space-between;font:500 26px ui-monospace,monospace;letter-spacing:.12em;color:rgba(239,234,225,.65)}
+.logo{color:#FF2E1F;font:800 32px "Archivo Variable";letter-spacing:0}
+#hook{position:absolute;left:88px;right:88px;top:160px;font:800 70px/1.05 "Archivo Variable";color:#EFEAE1;letter-spacing:-.03em}
+#hook em{font-family:"Instrument Serif";font-weight:400;color:#C8FF3D}
+#sub{position:absolute;left:70px;right:70px;top:1560px;text-align:center;font:800 84px/1.08 "Archivo Variable";color:#EFEAE1;letter-spacing:-.03em}
+#sub .w{display:inline-block;margin:0 .12em}
+#sub .w.on{color:#C8FF3D}
+#end{position:absolute;inset:0;background:#FF2E1F;clip-path:inset(100% 0 0 0)}
+#end h2{position:absolute;left:88px;top:620px;font:800 130px/1 "Archivo Variable";letter-spacing:-.04em;color:#fff;margin:0}
+#end h2 em{font-family:"Instrument Serif";font-weight:400;color:#0A0A0B}
+#end .cta{position:absolute;left:88px;top:960px;background:#0A0A0B;color:#EFEAE1;font:800 54px "Archivo Variable";padding:30px 46px;border-radius:12px}
+#end .h{position:absolute;left:88px;top:1150px;font:500 36px/1.5 ui-monospace,monospace;color:#fff}
+</style>
+<div class="ph"></div>
+<div id="mouth"></div>
+<div id="top" class="ph"></div>
+<div id="vig"></div>
+<div class="topbar"><span class="logo">el</span><span>WARSZAWA</span></div>
+<div id="hook">Strony dla małych firm. <em>Od jednej osoby.</em></div>
+<div id="sub"></div>
+<div id="end"><h2>Twoja strona<br><em>następna?</em></h2><div class="cta">Napisz w DM →</div><div class="h">@elvladislavo_com<br>elvladislavo.com</div></div>
+<script>
+// Script (proofread PL). Each line: [start time, text]. Words get syllable-timed mouth flaps.
+const LINES=[[0.4,'Cześć, jestem Uladzislau.'],[2.3,'Robię strony dla małych firm.'],[4.5,'Projekt, kod i wdrożenie. Wszystko sam.'],[7.3,'Landing page od 800 zł.'],[9.2,'Napisz w DM.']];
+const SYL=0.16, GAP=0.07; // seconds per syllable, pause between words
+const vow=w=>Math.max(1,(w.toLowerCase().match(/[aeiouyąęó]+/g)||[]).length);
+// build timeline
+const words=[];LINES.forEach(([t0,txt],li)=>{let t=t0;txt.split(' ').forEach(w=>{const n=/\d/.test(w)?4:vow(w);words.push({li,w,t,n,end:t+n*SYL});t+=n*SYL+GAP;});});
+const lineEnd=li=>Math.max(...words.filter(x=>x.li===li).map(x=>x.end));
+const $=id=>document.getElementById(id), C=x=>Math.min(Math.max(x,0),1), oC=x=>1-Math.pow(1-C(x),3);
+window.render=t=>{
+ // mouth: flap once per syllable of the active word
+ let open=0;words.forEach(x=>{if(t>=x.t&&t<x.end){const p=((t-x.t)%SYL)/SYL;open=Math.sin(p*Math.PI)*(x.n>1?1:.8);}});
+ $('top').style.transform=`translateY(${-72*open}px) rotate(${-2*open}deg)`;
+ const h=72*open;$('mouth').style.height=h+'px';$('mouth').style.top=(1138-h)+'px';
+ // subtitles: current line, words pop in, active word lime
+ let cur=-1;LINES.forEach(([t0],i)=>{if(t>=t0-0.05&&t<lineEnd(i)+0.6)cur=i;});
+ const sub=$('sub');
+ if(cur<0){sub.innerHTML='';}else{sub.innerHTML=words.filter(x=>x.li===cur).map(x=>{const k=oC((t-x.t+0.05)/0.18);const on=t>=x.t&&t<x.end;return `<span class="w${on?' on':''}" style="opacity:${k};transform:translateY(${30*(1-k)}px) scale(${on?1.06:1})">${x.w}</span>`}).join(' ');}
+ // hook fades after first line
+ $('hook').style.opacity=1-oC((t-2.2)/.4);
+ // end card
+ const ke=oC((t-10.4)/.6);$('end').style.clipPath=`inset(${100-100*ke}% 0 0 0)`;
+ [...$('end').children].forEach((e,i)=>{const k=oC((t-10.8-i*.15)/.45);e.style.opacity=k;e.style.transform=`translateY(${40*(1-k)}px)`});
+};
+render(0);
+</script>
