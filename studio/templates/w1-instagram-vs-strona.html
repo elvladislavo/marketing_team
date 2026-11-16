@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="brand.css"><style>
+html,body{height:1920px}.slide{padding:150px 88px}
+.l{opacity:0}
+h1{font-size:100px}
+.hook{margin-top:40px}
+.card{margin-top:30px;border:4px solid var(--bone);border-radius:14px;padding:34px 40px;opacity:0}
+.card.b{border-color:var(--lime)}
+.card h3{font:800 64px/1 "Archivo Variable";letter-spacing:-.03em;display:flex;align-items:baseline;gap:22px}
+.card h3 span{font:500 28px ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--bone2)}
+.card.b h3{color:var(--lime)}
+.it{font:600 50px/1.2 "Archivo Variable";margin-top:22px;opacity:0;display:flex;gap:20px}
+.it:before{content:"+";color:var(--red);font-weight:800}
+.card.b .it:before{color:var(--lime)}
+.both{margin-top:36px;font:800 76px/1.05 "Archivo Variable";letter-spacing:-.03em;opacity:0}
+.both em{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;color:var(--red)}
+.end{position:absolute;inset:0;background:var(--red);display:flex;flex-direction:column;justify-content:center;padding:88px;opacity:0}
+.end h2{font:800 150px/1 "Archivo Variable";letter-spacing:-.04em;color:#fff}
+.end h2 em{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400}
+.end .pill{margin-top:80px;background:var(--ink);color:var(--bone);font:800 76px "Archivo Variable";padding:36px 48px;border-radius:12px;display:inline-block;align-self:flex-start}
+.end .u{margin-top:50px;font:600 46px ui-monospace,monospace;color:#fff}
+</style>
+<div class="slide"><div class="top"><span class="logo">el</span><span>Warszawa</span></div>
+<div class="hook"><div class="bar l" id="b"></div>
+<h1><span class="l" id="h1" style="display:block">Masz Instagram<br>albo Booksy.</span><span class="l" id="h2" style="display:block">Czy potrzebujesz<br><em>strony?</em></span></h1></div>
+<div class="card" id="c1"><h3>Profil <span>Instagram / Booksy</span></h3>
+ <div class="it" id="a1">zasięg i obserwujący</div><div class="it" id="a2">zdjęcia i portfolio</div></div>
+<div class="card b" id="c2"><h3>Własna strona <span>twój adres</span></h3>
+ <div class="it" id="d1">własny adres w sieci</div><div class="it" id="d2">fundament pod Google</div><div class="it" id="d3">wszystko w jednym miejscu</div><div class="it" id="d4">bez algorytmu jednej platformy</div></div>
+<div class="both" id="bo">Najlepiej <em>razem.</em></div>
+</div>
+<div class="end" id="end"><h2>Napisz<br>w <em>DM</em> →</h2><div class="pill">od 800 zł</div><div class="u">@elvladislavo_com<br>elvladislavo.com</div></div>
+<script>
+const C=x=>Math.min(Math.max(x,0),1),ease=x=>1-Math.pow(1-C(x),3);
+const show=(id,t0,t,d=0.5,dy=40)=>{const e=document.getElementById(id),k=ease((t-t0)/d);e.style.opacity=k;e.style.transform=`translateY(${dy*(1-k)}px)`;return k};
+window.render=t=>{
+ show('b',0,t,.3,0);show('h1',0,t,.4,50);show('h2',.3,t,.4,50);
+ show('c1',1.8,t);show('a1',2.2,t,.4,24);show('a2',2.9,t,.4,24);
+ show('c2',4.4,t);[['d1',4.8],['d2',5.6],['d3',6.4],['d4',7.2]].forEach(([id,s])=>show(id,s,t,.4,24));
+ show('bo',8.8,t,.5,40);
+ const e=document.getElementById('end');e.style.opacity=ease((t-10.6)/.35);
+ const eh=e.querySelector('h2'),ep=e.querySelector('.pill');eh.style.transform=`translateY(${40*(1-ease((t-10.7)/.5))}px)`;ep.style.opacity=ease((t-11.3)/.4);
+};
+render(0);
+</script>
