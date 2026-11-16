@@ -5,7 +5,7 @@ Date: 2026-11-16 · Status: DRAFT, needs `approve` in queue/approval.md before a
 **Not readable.** instagram.com is blocked from this session (WebFetch: host not resolvable; curl: proxy 403). Current bio, name field, highlights, pins, follower count and link are unknown: `[NEEDS SOURCE]`. Everything below is built from knowledge/ and is a proposal. To audit the live profile: allow www.instagram.com in session network settings, or paste a screenshot or the current bio.
 
 ## 1. Name field (searchable, up to 64 chars)
-Recommended: **Vladislav | Strony internetowe** (`[TBD]` confirm real first name/spelling; a name-field keyword is what Instagram search indexes.)
+Recommended: **Uladzislau | Strony internetowe** (`[TBD]` confirm real first name/spelling; a name-field keyword is what Instagram search indexes.)
 Alt: `Strony WWW Polska | elvladislavo`
 
 ## 2. Bio options (max 150 chars; counts are approximate, check in app)
@@ -69,7 +69,7 @@ Face or clean logo mark on dark ink background; must be recognizable at small si
 - [ ] Re-audit once the live profile is readable
 
 ## Live audit update (2026-11-16, from screenshot)
-- Name field -> `Vladislav | Strony internetowe` (searchable; handle already holds the brand).
+- Name field -> `Uladzislau | Strony internetowe` (searchable; handle already holds the brand).
 - Bio (PL, EN line) replacing current:
   `Strony internetowe dla małych firm 🇵🇱 — od projektu po wdrożenie, sam.`
   `Landing od 800 zł · strony firmowe · sklepy WooCommerce`

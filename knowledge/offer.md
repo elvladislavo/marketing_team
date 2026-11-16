@@ -24,3 +24,10 @@ Source: elvladislavo.com (read 2026-11-16). Only these prices may be quoted.
 
 **Contact / booking:** hello@elvladislavo.com · +48 505 758 038 · contact form on site · reply usually within 1 business day. Booking link: [TBD]. Payment link: [TBD].
 **Languages:** PL / EN / RU / BY / UA. Site in PL + EN.
+
+## Owner decisions (2026-11-16)
+- Owner: Uladzislau Yeliseyeu. Use "Uladzislau" on profiles.
+- Main city: Warszawa (Google Business Profile service area; also serves all of Poland remotely).
+- Client permission to show kameralnybarbershop.pl and zhyvitsa.pl: yes.
+- Paid lead platforms (Oferteo, Fixly...): only if fees are low - check prices before signing up.
+- Free quote: [pending owner confirmation]

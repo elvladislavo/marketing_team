@@ -8,4 +8,4 @@
 | LinkedIn | [TBD] | B2B trust | posts | [TBD] | |
 | Google Business Profile | [TBD] | local search | posts, reviews | [TBD] | |
 Instagram is the priority channel. Add the Instagram link to the website footer (todo).
-Languages: Polish first (main market), English second. Bilingual captions (PL first, EN below) or separate posts per language.
+Languages: Polish first (main market), English second, Russian third (for RU-speaking business owners in Poland; separate posts/stories, not mixed captions).
