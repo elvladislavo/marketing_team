@@ -15,3 +15,6 @@ Languages: Polish first (main market), English second, Russian third (for RU-spe
 - Instagram business: channel id 6afb2259ece6dfde5fe5d87d
 - Threads: channel id 6afb22e1ece6dfde5fe5ddf0
 - Scheduler only creates posts for items with `approve` in queue/approval.md; default mode addToQueue. Keep queue <= 10.
+- Posting: Instagram 5 posts/week + Threads 5 posts/week, using Buffer's posting-schedule slots (addToQueue fills next free slot).
+- Threads = text-first: short opinions, tips, questions, behind-the-scenes; repurpose each IG carousel into a Threads post/thread. No hashtag sets (max 1 topic tag).
+- Buffer free limit is 10 scheduled posts; keep about 1 week queued per channel and top up weekly.
