@@ -38,7 +38,7 @@ Barbershop Reel + Threads post: DELETED from Buffer (client-content rule).
 | day | media | Buffer |
 |---|---|---|
 | Tue 17.11 | face-proces-a.mp4 | 6afb27c0 |
-| Wed 18.11 | face-insta-a.mp4 | 6afb2c09 |
-| Thu 19.11 | face-szybkosc-a.mp4 | 6afb27f1 |
-| Fri 20.11 | face-pytania-a.mp4 | 6afb298e |
+| Wed 18.11 | face2-insta-a.mp4 | 6afb2c09 |
+| Thu 19.11 | face2-szybkosc-a.mp4 | 6afb27f1 |
+| Fri 20.11 | face2-pytania-a.mp4 | 6afb298e |
 Mon 16.11 Reel (w1-ceny-reel-a) sent 18:30.
