@@ -33,3 +33,12 @@ Change `pending` to `approve` or `reject` (add a note). Agents only publish/send
 | Thu 19.11 | 12:30 3-part speed thread (6afb294b) | w1-szybkosc-a (6afb27f1) |
 | Fri 20.11 | 12:30 question to followers (6afb294f) | w1-pytania-reel-a (6afb298e) |
 Barbershop Reel + Threads post: DELETED from Buffer (client-content rule).
+
+## 2026-11-17: Reels Tue-Fri swapped to talking-photo versions (same slots, 18:30)
+| day | media | Buffer |
+|---|---|---|
+| Tue 17.11 | face-proces-a.mp4 | 6afb27c0 |
+| Wed 18.11 | face-insta-a.mp4 | 6afb2c09 |
+| Thu 19.11 | face-szybkosc-a.mp4 | 6afb27f1 |
+| Fri 20.11 | face-pytania-a.mp4 | 6afb298e |
+Mon 16.11 Reel (w1-ceny-reel-a) sent 18:30.
