@@ -1,15 +1,15 @@
-# "Klient vs. ja" - captions (short)
+# "Klient vs. ja" - captions (short, client-friendly)
 
 ## Instagram
-Klient i ja. Znacie te prośby? 😄
-Większe logo, slider z 10 zdjęciami i wszystko na jutro.
-Która brzmi znajomo? Napisz w komentarzu 👇
+Trzy pytania, które często słyszę przy projektowaniu strony. Wszystkie są w porządku 🙂
+Krótko odpowiadam, co działa najlepiej dla Twoich klientów.
+Masz podobne pytanie? Napisz w DM 👇
 
-EN: Bigger logo, 10-photo slider, done by tomorrow. Sound familiar?
+EN: Three questions I often hear when building a website, with short answers on what works best for your customers. Got a question? DM me.
 
 #stronyinternetowe #webdesign #projektowaniestron #malafirma #warszawa #elvladislavo
 
 ## Threads
-Клиент и я: «логотип побольше», «слайдер на 10 фото», «к завтра». Знакомо?
-PL: Znacie to?
-EN: Sound familiar?
+Три вопроса, которые я часто слышу при создании сайта. Все нормальные 🙂 Отвечаю, что лучше сработает для ваших клиентов.
+PL: Masz podobne pytanie? Napisz.
+EN: Got a similar question? Ask me.
