@@ -42,3 +42,11 @@ Barbershop Reel + Threads post: DELETED from Buffer (client-content rule).
 | Thu 19.11 | face2-szybkosc-a.mp4 | 6afb27f1 |
 | Fri 20.11 | face2-pytania-a.mp4 | 6afb298e |
 Mon 16.11 Reel (w1-ceny-reel-a) sent 18:30.
+
+## 2026-11-19: 8-bit music + Saturday bonus
+| day | media | Buffer |
+|---|---|---|
+| Thu 19.11 18:30 | face2-szybkosc-8bit.mp4 | 6afb27f1 |
+| Fri 20.11 18:30 | face2-pytania-8bit.mp4 | 6afb298e |
+| Sat 21.11 18:30 | face-dialog-8bit.mp4 (client-friendly caption) | 6afea04f |
+| Sat 21.11 12:30 Threads | dialog post RU/PL/EN | 6afea052 |
