@@ -1,0 +1,88 @@
+<!doctype html><meta charset="utf-8">
+<link rel="stylesheet" href="brand.css">
+<style>
+html,body{width:1080px;height:1920px;overflow:hidden;background:#0A0A0B;margin:0}
+.abs{position:absolute}
+/* narrator (front photo) */
+#narr{position:absolute;inset:0}
+.ph{position:absolute;left:0;top:300px;width:1080px;height:1440px;background:url(../../brand/avatar/ref-front2.jpg) 0 0/1080px 1440px no-repeat}
+#ntop{clip-path:polygon(180px 0,900px 0,900px 740px,730px 877px,330px 877px,180px 740px);transform-origin:525px 877px}
+#nmouth{position:absolute;left:330px;width:400px;height:0;top:1177px;border-radius:40px 40px 50% 50%;background:radial-gradient(ellipse at 50% 100%,#5a1410,#1a0302 70%)}
+/* dialog */
+#dlg{position:absolute;inset:0;opacity:0}
+.panel{position:absolute;top:420px;width:540px;height:850px;overflow:hidden;transition:none}
+.layer{position:absolute;background-size:100% 100%;background-repeat:no-repeat}
+.panel svg{position:absolute;left:0;top:0}
+#divider{position:absolute;left:538px;top:420px;width:4px;height:850px;background:#FF2E1F}
+.tag{position:absolute;top:452px;font:700 34px ui-monospace,monospace;letter-spacing:.14em;padding:8px 16px;background:#0A0A0B;color:#fff}
+#vig{position:absolute;inset:0;background:linear-gradient(#0A0A0B 0 330px,transparent 450px,transparent 1300px,rgba(10,10,11,.95) 1460px);pointer-events:none}
+.topbar{position:absolute;left:88px;right:88px;top:110px;display:flex;justify-content:space-between;align-items:center;font:700 46px ui-monospace,monospace;letter-spacing:.14em;color:rgba(255,255,255,.7)}
+.pxlogo{position:relative;display:block;width:132px;height:84px}.pxlogo i{position:absolute;width:12px;height:12px;background:#FF2E1F}
+#hook{position:absolute;left:88px;right:88px;top:228px;text-align:center;font:800 66px/1.05 "Archivo Variable";color:#fff;letter-spacing:-.03em}
+#hook em{font-family:"Instrument Serif";font-weight:400;color:#FF2E1F}
+#sub{position:absolute;left:70px;right:70px;top:1520px;text-align:center;font:800 68px/1.1 "Archivo Variable";color:#fff;letter-spacing:-.03em}
+#sub .w{display:inline-block;margin:0 .12em}#sub .w.on{color:#FF2E1F}
+#who{position:absolute;left:0;right:0;top:1450px;text-align:center;font:700 32px ui-monospace,monospace;letter-spacing:.2em;color:#FF2E1F}
+#end{position:absolute;inset:0;background:#FF2E1F;clip-path:inset(100% 0 0 0)}
+#end h2{position:absolute;left:88px;top:620px;font:800 130px/1 "Archivo Variable";letter-spacing:-.04em;color:#fff;margin:0}
+#end h2 em{font-family:"Instrument Serif";font-weight:400;color:#0A0A0B}
+#end .cta{position:absolute;left:88px;top:960px;background:#0A0A0B;color:#fff;font:800 54px "Archivo Variable";padding:30px 46px;border-radius:12px}
+#end .h{position:absolute;left:88px;top:1150px;font:500 36px/1.5 ui-monospace,monospace;color:#fff}
+</style>
+<div id="narr"><div class="ph"></div><div id="nmouth"></div><div id="ntop" class="ph"></div></div>
+<div id="dlg">
+  <div id="pK" class="panel" style="left:0"></div>
+  <div id="pJ" class="panel" style="left:540px"></div>
+  <div id="divider"></div>
+  <div class="tag" style="left:24px">PYTANIE</div>
+  <div class="tag" style="right:24px">ODPOWIEDŹ</div>
+</div>
+<div id="vig"></div>
+<div class="topbar"><span id="px" class="pxlogo"></span><span>WARSZAWA</span></div>
+<div id="hook">Domena i <em>hosting</em></div>
+<div id="who"></div>
+<div id="sub"></div>
+<div id="end"><h2>Masz<br><em>pytanie?</em></h2><div class="cta">Napisz w DM →</div><div class="h">@elvladislavo_com<br>elvladislavo.com</div></div>
+<script>
+(()=>{const E=['.....','.###.','#...#','#####','#....','#...#','.###.'],L=['##.','.#.','.#.','.#.','.#.','.#.','###'];let h='';
+E.forEach((r,y)=>[...r].forEach((c,x)=>{if(c=='#')h+=`<i style="left:${x*12}px;top:${y*12}px"></i>`}));
+L.forEach((r,y)=>[...r].forEach((c,x)=>{if(c=='#')h+=`<i style="left:${(x+6)*12}px;top:${y*12}px"></i>`}));
+document.getElementById('px').innerHTML=h;})();
+const $=id=>document.getElementById(id), C=x=>Math.min(Math.max(x,0),1), oC=x=>1-Math.pow(1-C(x),3);
+// profile setup: coords in 1500x2000 "display" units of the source photo
+const P={
+ K:{img:'../../brand/avatar/ref-right.jpg',s:.56,ox:-112,oy:-218,cut:1228,pivot:600,front:1105,dir:-1},
+ J:{img:'../../brand/avatar/ref-left.jpg',s:.56,ox:0,oy:-260,cut:1395,pivot:850,front:175,dir:1}};
+for(const k in P){const p=P[k],W=1500*p.s,H=2000*p.s,cy=p.cut*p.s;
+ $('p'+k).innerHTML=`<div class="layer" style="left:${p.ox}px;top:${p.oy}px;width:${W}px;height:${H}px;background-image:url(${p.img})"></div>
+ <svg width="540" height="850"><polygon id="cav${k}" fill="#2a0605"/></svg>
+ <div id="lid${k}" class="layer" style="left:${p.ox}px;top:${p.oy}px;width:${W}px;height:${H}px;background-image:url(${p.img});clip-path:inset(0 0 ${H-cy}px 0);transform-origin:${p.pivot*p.s}px ${cy}px"></div>`;}
+function flap(k,open){const p=P[k],th=10*open*p.dir,cy=p.cut*p.s+p.oy,px=p.pivot*p.s+p.ox,fx=p.front*p.s+p.ox;
+ $('lid'+k).style.transform=`rotate(${th}deg)`;
+ const a=th*Math.PI/180,dx=fx-px,rx=px+dx*Math.cos(a),ry=cy+dx*Math.sin(a);
+ $('cav'+k).setAttribute('points',open<.03?'':`${px},${cy} ${fx},${cy+4} ${rx},${ry}`);}
+// script
+const LINES=[['N','Domena i hosting. Krótko i po ludzku.'],['K','Co to jest domena?'],['J','Adres Twojej strony, na przykład twojafirma.pl.'],['K','A hosting?'],['J','Miejsce w internecie, gdzie strona jest przechowywana.'],['K','Czy domena będzie moja?'],['J','Tak. Zawsze rejestruj ją na siebie.'],['N','Masz pytanie? Napisz w DM.']];
+const SYL=.16,GAP=.07,PAUSE=.5,vow=w=>Math.max(1,(w.toLowerCase().match(/[aeiouyąęó]+/g)||[]).length);
+const words=[],lines=[];let t=.4;LINES.forEach(([sp,txt],li)=>{const t0=t;txt.split(' ').forEach(w=>{const n=/\d/.test(w)?4:vow(w);words.push({li,sp,w,t,n,end:t+n*SYL});t+=n*SYL+GAP});lines.push({sp,t0,end:t});t+=PAUSE;});
+const D1=lines[1].t0-.25, D2=lines[lines.length-1].t0-.25, END=lines[lines.length-1].end+.4;
+window.TOTAL=END+2.4;
+window.render=t=>{
+ // which scene
+ const dl=oC((t-D1)/.35)*(1-oC((t-D2)/.35));$('dlg').style.opacity=dl;$('narr').style.opacity=1-dl;
+ $('hook').innerHTML='Domena i <em>hosting</em>';
+ // mouth per active speaker
+ let open={N:0,K:0,J:0},cur=null;
+ words.forEach(x=>{if(t>=x.t&&t<x.end){const p=((t-x.t)%SYL)/SYL;open[x.sp]=Math.sin(p*Math.PI)*(x.n>1?1:.8);}});
+ lines.forEach((l,i)=>{if(t>=l.t0-.05&&t<l.end+.45)cur=i;});
+ const nh=72*open.N;$('ntop').style.transform=`translateY(${-nh}px) rotate(${-2*open.N}deg)`;$('nmouth').style.height=nh+'px';$('nmouth').style.top=(1177-nh)+'px';
+ flap('K',open.K);flap('J',open.J);
+ const sp=cur!=null?lines[cur].sp:null;
+ $('pK').style.filter=sp==='J'?'brightness(.5)':'none';$('pJ').style.filter=sp==='K'?'brightness(.5)':'none';
+ $('who').textContent=sp==='K'?'PYTANIE':sp==='J'?'ODPOWIEDŹ':'';
+ $('sub').innerHTML=cur==null?'':words.filter(x=>x.li===cur).map(x=>{const k=oC((t-x.t+.05)/.18),on=t>=x.t&&t<x.end;return `<span class="w${on?' on':''}" style="opacity:${k};transform:translateY(${30*(1-k)}px)">${x.w}</span>`}).join(' ');
+ const ke=oC((t-END)/.6);$('end').style.clipPath=`inset(${100-100*ke}% 0 0 0)`;
+ [...$('end').children].forEach((e,i)=>{const k=oC((t-END-.4-i*.15)/.45);e.style.opacity=k;e.style.transform=`translateY(${40*(1-k)}px)`});
+};
+render(0);
+</script>
