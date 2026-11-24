@@ -1,4 +1,4 @@
-# Week 25-29.11 - 5 photo Reels (DRAFT IDEAS, nothing rendered/scheduled)
+# Week 25-29.11 - 5 photo Reels (RENDERED: content/media/story-*-8bit.mp4 - NOT scheduled yet)
 Format for all: your real photo + animated layer (pixel "el", WARSZAWA, red/black/white graphics, 8-bit music, subtitles), 10-15 s.
 Slots: Instagram Reel 18:30, Threads 12:30 (RU first + PL/EN line).
 

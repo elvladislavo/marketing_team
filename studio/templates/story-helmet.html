@@ -1,0 +1,89 @@
+<!doctype html><meta charset="utf-8">
+<link rel="stylesheet" href="brand.css">
+<style>
+html,body{width:1080px;height:1920px;overflow:hidden;background:#0A0A0B;margin:0}
+.abs{position:absolute}
+#cam{position:absolute;left:0;top:0;width:1440px;height:1920px;transform-origin:0 0}
+#cam img{position:absolute;left:0;top:0;width:1440px;height:1920px}
+#dim{position:absolute;inset:0;background:#0A0A0B;opacity:0}
+#shade{position:absolute;inset:0;background:linear-gradient(rgba(10,10,11,.92) 0,rgba(10,10,11,.55) 300px,transparent 460px,transparent 1380px,rgba(10,10,11,.92) 1560px)}
+.topbar{position:absolute;left:88px;right:88px;top:110px;display:flex;justify-content:space-between;align-items:center;font:700 46px ui-monospace,monospace;letter-spacing:.14em;color:rgba(255,255,255,.8)}
+.pxlogo{position:relative;display:block;width:132px;height:84px}.pxlogo i{position:absolute;width:12px;height:12px;background:#FF2E1F}
+#hook{position:absolute;left:60px;right:60px;top:228px;text-align:center;font:800 66px/1.05 "Archivo Variable";color:#fff;letter-spacing:-.03em;text-shadow:0 2px 18px rgba(0,0,0,.5)}
+#hook em,.serif{font-family:"Instrument Serif";font-weight:400;font-style:italic;color:#FF2E1F}
+#sub{position:absolute;left:70px;right:70px;top:1560px;text-align:center;font:800 68px/1.1 "Archivo Variable";color:#fff;letter-spacing:-.03em}
+#sub .w{display:inline-block;margin:0 .12em}#sub .w.on{color:#FF2E1F}
+#fx{position:absolute;inset:0}
+#end{position:absolute;inset:0;background:#FF2E1F;clip-path:inset(100% 0 0 0)}
+#end h2{position:absolute;left:88px;top:620px;font:800 120px/1 "Archivo Variable";letter-spacing:-.04em;color:#fff;margin:0}
+#end h2 em{font-family:"Instrument Serif";font-weight:400;color:#0A0A0B}
+#end .cta{position:absolute;left:88px;top:960px;background:#0A0A0B;color:#fff;font:800 54px "Archivo Variable";padding:30px 46px;border-radius:12px}
+#end .h{position:absolute;left:88px;top:1150px;font:500 36px/1.5 ui-monospace,monospace;color:#fff}
+/* shared overlay pieces */
+.card{position:absolute;background:#fff;color:#0A0A0B;border-radius:22px;box-shadow:0 18px 40px rgba(0,0,0,.35);font:700 40px/1.2 "Archivo Variable"}
+.tagr{position:absolute;background:#FF2E1F;color:#fff;font:800 40px/1 "Archivo Variable";padding:14px 22px;border-radius:10px;white-space:nowrap}
+.mono{font-family:ui-monospace,monospace}
+</style>
+<div id="cam"><img id="photo"><div id="camfx"></div></div>
+<div id="dim"></div>
+<div id="shade"></div>
+<div id="fx"></div>
+<div class="topbar"><span id="px" class="pxlogo"></span><span>WARSZAWA</span></div>
+<div id="hook"></div>
+<div id="sub"></div>
+<div id="end"><h2></h2><div class="cta">Napisz w DM →</div><div class="h">@elvladislavo_com<br>elvladislavo.com</div></div>
+<script>
+// ---------- engine ----------
+const $=id=>document.getElementById(id), C=x=>Math.min(Math.max(x,0),1), oC=x=>1-Math.pow(1-C(x),3), io=x=>{x=C(x);return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2};
+const oB=x=>{x=C(x);const c=1.70158;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
+const lerp=(a,b,k)=>a+(b-a)*k;
+(()=>{const E=['.....','.###.','#...#','#####','#....','#...#','.###.'],L=['##.','.#.','.#.','.#.','.#.','.#.','###'];let h='';
+E.forEach((r,y)=>[...r].forEach((c,x)=>{if(c=='#')h+=`<i style="left:${x*12}px;top:${y*12}px"></i>`}));
+L.forEach((r,y)=>[...r].forEach((c,x)=>{if(c=='#')h+=`<i style="left:${(x+6)*12}px;top:${y*12}px"></i>`}));
+$('px').innerHTML=h;})();
+// camera: (u,v) normalized point of the photo centred on screen, zoom z (1 = photo height fills screen)
+let CAM={u:.5,v:.5,z:1,rot:0,dx:0,dy:0};
+function applyCam(){const z=CAM.z,left=540-CAM.u*1440*z+CAM.dx,top=960-CAM.v*1920*z+CAM.dy;
+ $('cam').style.transform=`translate(${left}px,${top}px) scale(${z}) rotate(${CAM.rot}deg)`;}
+// keyframe camera path: [[t,u,v,z],...] eased between keys
+function camPath(keys,t){let a=keys[0],b=keys[keys.length-1];for(let i=0;i<keys.length-1;i++){if(t>=keys[i][0]&&t<=keys[i+1][0]){a=keys[i];b=keys[i+1];break}}
+ if(t<=keys[0][0]){a=b=keys[0]} if(t>=keys[keys.length-1][0]){a=b=keys[keys.length-1]}
+ const k=a===b?0:io((t-a[0])/(b[0]-a[0]));CAM.u=lerp(a[1],b[1],k);CAM.v=lerp(a[2],b[2],k);CAM.z=lerp(a[3],b[3],k);}
+// blur a rect of the photo (normalized u0,v0,u1,v1) - e.g. brand logos
+function blurRect(u0,v0,u1,v1,px=16){$('camfx').insertAdjacentHTML('beforeend',`<img src="${S.img}" style="position:absolute;left:0;top:0;width:1440px;height:1920px;filter:blur(${px}px);clip-path:inset(${v0*100}% ${(1-u1)*100}% ${(1-v1)*100}% ${u0*100}%)">`)}
+// subtitles timeline
+const SYL=.16,GAP=.07,PAUSE=.45,vow=w=>Math.max(1,(w.toLowerCase().match(/[aeiouyąęó]+/g)||[]).length);
+let words=[],L=[],END=0;
+function buildTimeline(){let t=.6;S.lines.forEach((txt,li)=>{const t0=t;txt.split(' ').forEach(w=>{const n=/\d/.test(w)?4:vow(w);words.push({li,w,t,n,end:t+n*SYL});t+=n*SYL+GAP});L.push({t0,end:t});t+=PAUSE;});END=t+.3;window.TOTAL=END+2.4;}
+function subs(t){let cur=-1;L.forEach((l,i)=>{if(t>=l.t0-.05&&t<l.end+.45)cur=i});
+ $('sub').innerHTML=cur<0?'':words.filter(x=>x.li===cur).map(x=>{const k=oC((t-x.t+.05)/.18),on=t>=x.t&&t<x.end;return `<span class="w${on?' on':''}" style="opacity:${k};transform:translateY(${30*(1-k)}px)">${x.w}</span>`}).join(' ');}
+function endCard(t){const ke=oC((t-END)/.6);$('end').style.clipPath=`inset(${100-100*ke}% 0 0 0)`;
+ [...$('end').children].forEach((e,i)=>{const k=oC((t-END-.4-i*.15)/.45);e.style.opacity=k;e.style.transform=`translateY(${40*(1-k)}px)`});}
+// pop helper for overlay elements: appear at t0 with overshoot
+function pop(el,t,t0,from=.4){const k=(t-t0)/.35;el.style.opacity=C(k*3);el.style.transform=(el.dataset.base||'')+` scale(${t<t0?from:from+(1-from)*oB(k)})`;}
+// ---------- per-video scene (injected) ----------
+const S={img:'../../brand/avatar/ref-helmet.jpg',hook:'Spójny <em>wizerunek</em>',end:'Jedna<br><em>marka?</em>',
+lines:['Kask, krawat i sportowa koszulka.','Na imprezie działa.','W firmie już nie.','Logo, kolory i czcionki – wszędzie takie same.','Wtedy klient Cię zapamięta.'],
+setup(){ const T=[['KASK',.10,.15],['KRAWAT',.50,.63],['KOSZULKA',.14,.56]];
+ $('camfx').insertAdjacentHTML('beforeend',T.map(([s,u,v],i)=>`<div id="tg${i}" class="tagr" style="left:${u*1440}px;top:${v*1920}px">${s}</div>`).join(''));
+ const card=(i,lab,bad)=>`<div id="cd${i}" class="card" style="left:${80+i*320}px;top:860px;width:280px;height:380px;overflow:hidden;padding:0"><div class="bad" style="position:absolute;inset:0;padding:22px;${bad}">
+   <div style="font:inherit;font-size:30px">Moja Firma</div><div style="margin-top:14px;height:120px;background:currentColor;opacity:.2;border-radius:6px"></div><div style="margin-top:14px;font-size:20px">${lab}</div></div>
+  <div class="good" style="position:absolute;inset:0;padding:22px;background:#0A0A0B;color:#fff;opacity:0"><div style="width:100%;height:8px;background:#FF2E1F"></div>
+   <div style="font:800 34px 'Archivo Variable';margin-top:18px">Moja Firma</div><div style="margin-top:14px;height:120px;background:#FF2E1F;border-radius:10px"></div><div style="margin-top:14px;font:600 22px ui-monospace,monospace;letter-spacing:.1em">${lab}</div></div></div>`;
+ $('fx').innerHTML=card(0,'INSTAGRAM',"background:#fff;color:#0A0A0B;font:italic 400 30px Georgia,serif;transform:rotate(-4deg)")+card(1,'STRONA',"background:#ddd;color:#333;font:700 30px 'Courier New',monospace;transform:rotate(3deg)")+card(2,'GOOGLE',"background:#FF2E1F;color:#fff;font:300 30px Arial;transform:rotate(-2deg)")+
+  `<div id="xx" class="abs" style="left:0;right:0;top:600px;text-align:center;font:900 420px/1 'Archivo Variable';color:#FF2E1F;-webkit-text-stroke:8px #fff">✕</div>`;
+ [0,1,2].forEach(i=>{$('tg'+i).dataset.base='';$('cd'+i).dataset.base=''});$('xx').dataset.base='';},
+update(t){ camPath([[0,.45,.43,.95],[L[1].t0,.45,.42,.98],[END,.45,.42,1.04]],t);
+ CAM.dy=t>=L[1].t0&&t<L[1].t0+.8?-Math.abs(Math.sin((t-L[1].t0)*12))*30*(1-(t-L[1].t0)/.8):0;
+ [0,1,2].forEach(i=>{const e=$('tg'+i);if(t>=L[2].t0){e.style.opacity=1-C((t-L[2].t0)/.3);return}pop(e,t,L[0].t0+i*.45,.3)});
+ $('dim').style.opacity=t>=L[2].t0?.7*C((t-L[2].t0)/.3):0;
+ const xe=$('xx');if(t>=L[2].t0&&t<L[3].t0){pop(xe,t,L[2].t0+.1,1.8)}else xe.style.opacity=0;
+ const snap=L[3].t0+1.3;[0,1,2].forEach(i=>{const c=$('cd'+i);if(t<L[3].t0){c.style.opacity=0;return}pop(c,t,L[3].t0+i*.15,.4);
+  c.querySelector('.good').style.opacity=C((t-snap-i*.12)/.2);c.querySelector('.bad').style.opacity=1-C((t-snap-i*.12)/.2);}); }};
+
+// ---------- boot ----------
+$('photo').src=S.img;$('hook').innerHTML=S.hook;$('end').querySelector('h2').innerHTML=S.end;
+buildTimeline();if(S.setup)S.setup();
+window.render=t=>{S.update(t);applyCam();subs(t);endCard(t);};
+render(0);
+</script>
