@@ -50,3 +50,13 @@ Mon 16.11 Reel (w1-ceny-reel-a) sent 18:30.
 | Fri 20.11 18:30 | face2-pytania-8bit.mp4 | 6afb298e |
 | Sat 21.11 18:30 | face-domena-8bit.mp4 (domain & hosting; dialog Reel posted manually by owner) | 6afea04f |
 | Sat 21.11 12:30 Threads | domain & hosting RU/PL/EN | 6afea052 |
+
+## Week 25-29.11 - Threads text only (owner posts Reels manually)
+| day | 11:30 | 19:00 |
+|---|---|---|
+| Wed 25 | old-site details (6b057d0d) | footer year tip (6b057d10) |
+| Thu 26 | site for everyone = nobody (6b057d13) | one main button (6b057d16) |
+| Fri 27 | check on phone (6b057d19) | pinch-zoom test (6b057d1c) |
+| Sat 28 | site works on weekends (6b057d1f) | FAQ hack (6b057d22) |
+| Sun 29 | one brand everywhere (6b057d25) | what annoys you on sites? (6b057d27) |
+Reels story-*-8bit.mp4: posted manually by owner (not in Buffer).
