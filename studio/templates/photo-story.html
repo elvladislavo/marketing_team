@@ -54,10 +54,10 @@ function blurRect(u0,v0,u1,v1,px=16){$('camfx').insertAdjacentHTML('beforeend',`
 // subtitles timeline
 const SYL=.16,GAP=.07,PAUSE=.45,vow=w=>Math.max(1,(w.toLowerCase().match(/[aeiouyąęó]+/g)||[]).length);
 let words=[],L=[],END=0;
-function buildTimeline(){let t=.6;S.lines.forEach((txt,li)=>{const t0=t;txt.split(' ').forEach(w=>{const n=/\d/.test(w)?4:vow(w);words.push({li,w,t,n,end:t+n*SYL});t+=n*SYL+GAP});L.push({t0,end:t});t+=PAUSE;});END=t+.3;window.TOTAL=END+2.4;}
+function buildTimeline(){let t=.6;S.lines.forEach((txt,li)=>{const t0=t;txt.split(' ').forEach(w=>{const n=/\d/.test(w)?4:vow(w);words.push({li,w,t,n,end:t+n*SYL});t+=n*SYL+GAP});L.push({t0,end:t});t+=PAUSE;});END=t+.3;window.TOTAL=END+(S.tail||2.4);}
 function subs(t){let cur=-1;L.forEach((l,i)=>{if(t>=l.t0-.05&&t<l.end+.45)cur=i});
  $('sub').innerHTML=cur<0?'':words.filter(x=>x.li===cur).map(x=>{const k=oC((t-x.t+.05)/.18),on=t>=x.t&&t<x.end;return `<span class="w${on?' on':''}" style="opacity:${k};transform:translateY(${30*(1-k)}px)">${x.w}</span>`}).join(' ');}
-function endCard(t){const ke=oC((t-END)/.6);$('end').style.clipPath=`inset(${100-100*ke}% 0 0 0)`;
+function endCard(t){const ke=oC((t-END)/(S.tail<2?.35:.6));$('end').style.clipPath=`inset(${100-100*ke}% 0 0 0)`;
  [...$('end').children].forEach((e,i)=>{const k=oC((t-END-.4-i*.15)/.45);e.style.opacity=k;e.style.transform=`translateY(${40*(1-k)}px)`});}
 // pop helper for overlay elements: appear at t0 with overshoot
 function pop(el,t,t0,from=.4){const k=(t-t0)/.35;el.style.opacity=C(k*3);el.style.transform=(el.dataset.base||'')+` scale(${t<t0?from:from+(1-from)*oB(k)})`;}
